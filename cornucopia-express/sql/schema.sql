@@ -16,11 +16,11 @@ CREATE TABLE ngo_types (
 CREATE TABLE ngo_profile (
     ngo_id SERIAL PRIMARY KEY,
     ngo_name VARCHAR(200),
+    ngo_email VARCHAR(500),
+    ngo_ein VARCHAR(50),
     ngo_address VARCHAR(500),
     ngo_website VARCHAR(500),
     ngo_photo VARCHAR(500),
-    ngo_email VARCHAR(500),
-    ngo_ein VARCHAR(50),
     ngo_description VARCHAR(1000),
     ngo_type_id INT REFERENCES ngo_types (type_id)
 );
