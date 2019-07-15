@@ -53,12 +53,11 @@ class User {
         }
     }
 
-    async deleteUser() {
-        const user = await User.getUserInfo(this.user_id);
+    async deleteUser(user_id) {
         try {
             const response = await db.none(`
                 DELETE FROM user_profile
-                WHERE user_id = '${user}'
+                WHERE user_id = '${user_id}'
             `);
         } catch(error) {
             console.log('Error in delete user.', error.message);

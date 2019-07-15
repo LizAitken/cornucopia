@@ -80,7 +80,6 @@ class Donations {
             return error.message;
         }
     }
-
-    
-
 }
+
+module.exports = Donations;
