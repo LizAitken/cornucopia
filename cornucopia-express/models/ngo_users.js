@@ -78,7 +78,7 @@ class NGO_User {
                     SELECT
                         type_name
                     FROM 
-                        ngo_types
+                        ngo_types,
                         ngo_profile
                     WHERE
                         ngo_id = '${ngo_id}'

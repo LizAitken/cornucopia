@@ -52,18 +52,6 @@ class User {
             return error.message;
         }
     }
-
-    async deleteUser(user_id) {
-        try {
-            const response = await db.none(`
-                DELETE FROM user_profile
-                WHERE user_id = '${user_id}'
-            `);
-        } catch(error) {
-            console.log('Error in delete user.', error.message);
-            return error.message;
-        }
-    }
 }
 
 module.exports = User;

@@ -10,5 +10,6 @@ VALUES
 (6, 'Social Justice'),
 (7, 'Health'),
 (8, 'Educational'),
-(9, 'Arts & Culture');
+(9, 'Arts & Culture'),
+(10, 'Religious');
 
