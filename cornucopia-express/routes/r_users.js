@@ -1,6 +1,6 @@
 const express = require('express'),
       router = express.Router(),
-      Users = require('../models/users'),
+      User = require('../models/users'),
       bcrypt = require('bcryptjs');
 
 /* GET users listing. */
@@ -31,7 +31,7 @@ router.post('/sign-up', async (req,res) => {
   const salt = bcrypt.genSaltSync(10),
         hash = bcrypt.hashSync(req.body.user_password, salt);
 
-  const user = new User(first_name, last_name, user_email, hash);
+  const user = new User( null, first_name, last_name, user_email, hash);
   const response = await user.addUser();
 
   response.then(() => {

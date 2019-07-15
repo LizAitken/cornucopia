@@ -32,7 +32,6 @@ class NGO_User {
             const response = await db.one(`
                 INSERT INTO ngo_profile 
                     (
-                        ngo_id,
                         ngo_name,
                         ngo_email,
                         ngo_password,
@@ -45,9 +44,9 @@ class NGO_User {
                         ngo_photo
                     ) 
                 VALUES 
-                    ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, null)
+                    ($1, $2, $3, $4, $5, $6, $7, $8, $9, null)
                 RETURNING ngo_email
-                `, [this.ngo_id, this.ngo_name, this.ngo_email, this.ngo_password, this.ngo_ein, this.ngo_address, this.ngo_phone, this.ngo_description, this.ngo_type_id, this.ngo_website ]);
+                `, [this.ngo_name, this.ngo_email, this.ngo_password, this.ngo_ein, this.ngo_address, this.ngo_phone, this.ngo_description, this.ngo_type_id, this.ngo_website ]);
             console.log("user was created with email:", response.ngo_email);
             return response;
         } catch(error) {
@@ -92,6 +91,7 @@ class NGO_User {
             return error.message;
         }
     }
+
 }
 
 module.exports = NGO_User;

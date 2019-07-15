@@ -3,10 +3,12 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
-const session = require('express-session'),
+const session = require('express-session');
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const usersRouter = require('./routes/r_users');
+const donationsRouter = require('./routes/r_donations');
+const ngoUsersRouter = require('./routes/r_ngo_users');
 
 const app = express();
 
@@ -34,5 +36,7 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/donations', donationsRouter);
+app.use('/non-profit', ngoUsersRouter);
 
 module.exports = app;
