@@ -9,8 +9,8 @@ const DonationList = props => {
           <>
             <h1>Items for Donation</h1>
             <ul>{
-              itemData.map(item =>
-                <li key={item.donation_id}>
+              itemData.map((item,index) =>
+                <li key={index}>
                   <DonationItem itemData={item}/>
                 </li>)
             }</ul>

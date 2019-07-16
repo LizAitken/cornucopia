@@ -39,7 +39,12 @@ class Donations {
         try {
             const response = await db.any(`
                 SELECT
-                    ngo_name
+                    ngo_name,
+                    donation_name,
+                    donation_cost,
+                    donation_store_name,
+                    donation_amount,
+                    donation_photo
                 FROM
                     ngo_profile,
                     donations
@@ -58,6 +63,7 @@ class Donations {
             const response = await db.any(`
                 SELECT
                     type_name
+                    donatation_name
                 FROM
                     ngo_types,
                     ngo_profile,

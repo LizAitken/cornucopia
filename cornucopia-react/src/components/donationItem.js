@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/donationItem.css';
 
 const DonationItem = props => {
     const { itemData } = props;
@@ -7,9 +8,11 @@ const DonationItem = props => {
         <>
          <div>
              <h3>Item: {itemData.donation_name}</h3>
+             <img src={itemData.donation_photo} alt={itemData.donation_name}/>
              <p>Cost: {itemData.donation_cost}</p>
-             <p>How Many: {itemData.donation_amount}</p>
+             <p>Needed: {itemData.donation_amount}</p>
              <p>From Where: {itemData.donation_store_name}</p>
+             <p>Charity: {itemData.ngo_name}</p>
          </div>   
         </>
     )

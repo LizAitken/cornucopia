@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import MainNav from './components/mainNav';
 import DonationList from './components/donationList';
 import './App.css';
+
+const routesArray = [
+  { linkRoute: '/home', linkName: 'Home' },
+]
+
 
 class App extends Component {
   state = {
@@ -9,35 +17,30 @@ class App extends Component {
 
   async componentDidMount() {
     const data = await this.loadData();
-    const moreData = await this.loadMoreData();
     this.setState({
-      items: data,
-      moreItems: moreData
+      items: data
     });
   };
 
   loadData = async () => {
     const url = `http://localhost:3000/donations/all`;
     const response = await fetch(url);
-    const data = response.json();
+    let data = response.json();
     console.log("From load data", data);
     return data;
   };
 
-  loadMoreData = async () => {
-    const url = `http://localhost:3000/donations/all`;
-    const response = await fetch(url);
-    const moreData = response.json();
-    console.log("From load more data", moreData);
-    return moreData;
-  };
-
   render() {
-    const { items, moreItems } = this.state;
+    const { items } = this.state;
     return (
-      <div className="App">
-        <DonationList itemData={items} moreData={moreItems}/>
-      </div>
+      <Router>
+        <div className="App">
+          <MainNav routes={routesArray}/>
+          <Route path="/home" 
+            render={(props) => <DonationList {...props} itemData={items}/>}
+          />
+        </div>
+      </Router>
     );
   }
 }
