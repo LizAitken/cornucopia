@@ -24,7 +24,7 @@ class Donations {
         try {
             const response = await db.any(`
                 SELECT
-                    *
+                *
                 FROM
                     donations
             `);
@@ -33,7 +33,46 @@ class Donations {
             console.log("Error at getAllDonationItems:", error.message);
             return error.message;
         }
-    } 
+    }
+
+    static async getNGONamesForAllItems() {
+        try {
+            const response = await db.any(`
+                SELECT
+                    ngo_name
+                FROM
+                    ngo_profile,
+                    donations
+                WHERE
+                    ngo_id = donation_receiver
+            `);
+            return response;
+        } catch(error) {
+            console.log("Error at getNGONamesForAllItems:", error.message);
+            return error.message;
+        }
+    }
+    
+    static async getAllTypesForAllItems() {
+        try {
+            const response = await db.any(`
+                SELECT
+                    type_name
+                FROM
+                    ngo_types,
+                    ngo_profile,
+                    donations
+                WHERE
+                    ngo_type_id = type_id
+                    AND
+                    ngo_id = donation_receiver
+            `);
+            return response;
+        } catch(error) {
+            console.log("Error at getAllTypesForAllItem:", error.message);
+            return error.message;
+        }
+    }
 
     static async getAllDonationsByUserID(user_id) {
         try {

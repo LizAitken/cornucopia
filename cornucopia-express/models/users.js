@@ -46,7 +46,7 @@ class User {
 
         try {
             const response = await db.one(query);
-            return response.user_id;
+            return response;
         } catch(error) {
             console.log("Error in getUSerInfo:", error.message);
             return error.message;

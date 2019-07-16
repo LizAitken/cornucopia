@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
     res.send('respond with a resource');
 });
   
-router.get('/profile/:ngo_id?', async (requ, res, next) => {
+router.get('/profile/:ngo_id?', async (req, res, next) => {
     const ngoID = req.params.ngo_id;
     const [ngoInfo, donationInfo] = await Promise.all([NGO_User.getNGObyID(ngoID), Donations.getAllDonationsByNGOid(ngoID)]);
     console.log("ngo Info and donation info: ", ngoInfo, donationInfo);
@@ -54,7 +54,6 @@ router.post('/sign-up', async (req,res) => {
       res.send(`Could not add new user with ngo name: '${ngo_name}'`).status(409);
     }
 });
-  
-  
-  module.exports = router;
+    
+module.exports = router;
         

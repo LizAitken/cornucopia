@@ -8,15 +8,15 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.get('/profile/:user_id?', async (requ, res, next) => {
+router.get('/profile/:user_id?', async (req, res, next) => {
   const userID = req.params.user_id;
-  const userInfo = await Users.getUserInfo(userID);
+  const userInfo = await User.getUserInfo(userID);
   res.json(userInfo).status(200);
 });
 
 router.get('/delete/:user_id?', async (req,res, next) => {
   const userID = req.params.user_id;
-  const response = await Users.deleteUser(userID);
+  const response = await User.deleteUser(userID);
 
   if (response.command === 'DELETE' && response.rowCount >= 1) {
     res.sendStatus(200);
