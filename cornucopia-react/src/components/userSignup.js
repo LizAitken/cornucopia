@@ -61,16 +61,16 @@ class UserSignup extends Component {
               <h1>Sign-Up</h1> 
               <form onSubmit={this.handleSubmit}>
                   <label >
-                      <input type='text' value={this.state.firstName} placeholder='First Name' onChange={this.handleFirstNameChange}/>
+                      <input type='text' value={this.state.firstName} placeholder='First Name' onChange={this.handleFirstNameChange} required/>
                   </label>
                   <label >
-                      <input type='text' value={this.state.lastName} placeholder='Last Name' onChange={this.handleLastNameChange}/>
+                      <input type='text' value={this.state.lastName} placeholder='Last Name' onChange={this.handleLastNameChange} required/>
                   </label>
                   <label>
-                      <input type='password' value={this.state.password} placeholder='password' onChange={this.handlePasswordChange}/>
+                      <input type='password' value={this.state.password} placeholder='password' onChange={this.handlePasswordChange} required/>
                   </label>
                   <label>
-                      <input type='text' value={this.state.email} placeholder='Email' onChange={this.handleEmailChange}/>
+                      <input type='text' value={this.state.email} placeholder='Email' onChange={this.handleEmailChange} required/>
                   </label>
                   <input type="submit" value="Submit" />
                 </form>              

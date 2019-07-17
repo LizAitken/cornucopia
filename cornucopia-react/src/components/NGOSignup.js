@@ -102,13 +102,13 @@ class NGOSignup extends Component {
               <h1>Sign-Up</h1>
               <form onSubmit={this.handleNGOSubmit}>
                   <label>
-                      <input type='text' value={this.state.name} onChange={this.handleNGO_NameChange} placeholder='Non-Profit Name'/>
+                      <input type='text' value={this.state.name} onChange={this.handleNGO_NameChange} placeholder='Non-Profit Name' required/>
                   </label>
                   <label>
-                      <input type='password' value={this.state.password} onChange={this.handleNGO_PasswordChange} placeholder='password'/>
+                      <input type='password' value={this.state.password} onChange={this.handleNGO_PasswordChange} placeholder='password'required/>
                   </label>
                   <label>
-                      <input type='text' value={this.state.email} onChange={this.handleNGO_EmailChange} placeholder='Email'/>
+                      <input type='text' value={this.state.email} onChange={this.handleNGO_EmailChange} placeholder='Email' required/>
                   </label>
                   <label>
                       <input type='text' value={this.state.address} onChange={this.handleAddressChange} placeholder='Address'/>
@@ -117,13 +117,13 @@ class NGOSignup extends Component {
                       <input type='url' value={this.state.website} onChange={this.handleWebsiteChange} placeholder='Website'/>
                   </label>
                   <label>
-                      <input type='text-field' value={this.state.description} onChange={this.handleDescriptionChange} placeholder='Description'/>
+                      <input type='text-field' value={this.state.description} onChange={this.handleDescriptionChange} placeholder='Description' required/>
                   </label>
                   <label>
                       <input type='number' value={this.state.ein} onChange={this.handleEINChange} placeholder='EIN'/>
                   </label>
                   <label>
-                      <input type='number' value={this.state.type_id} onChange={this.handleTypeIDChange} placeholder='Type ID for non-profit'/>
+                      <input type='number' value={this.state.type_id} onChange={this.handleTypeIDChange} placeholder='Type ID for non-profit' required/>
                   </label>
                   <label>
                       <input type='text' value={this.state.photo} onChange={this.handlePhotoChange} placeholder='Photo URL'/>

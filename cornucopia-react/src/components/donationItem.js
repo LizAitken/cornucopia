@@ -10,7 +10,9 @@ const DonationItem = props => {
              <h3>Item: {itemData.donation_name}</h3>
              <img src={itemData.donation_photo} alt={itemData.donation_name}/>
              <p>Cost: {itemData.donation_cost}</p>
-             <p>Needed: {itemData.donation_amount}</p>
+             <p>Total Need: {itemData.donation_amount}</p>
+             <p>Bought: {itemData.number_purchased}</p>
+             <p>Still Need: {itemData.amount_still_needed}</p>
              <p>From Where: {itemData.donation_store_name}</p>
              <p>Charity: {itemData.ngo_name}</p>
          </div>   

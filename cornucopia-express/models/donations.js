@@ -8,7 +8,9 @@ class Donations {
         donation_amount, 
         donation_store_name, 
         donation_giver, 
-        donation_receiver
+        donation_receiver,
+        number_purchased,
+        amount_still_needed
     ) {
         this.donation_id= donation_id; 
         this.donation_name= donation_name;
@@ -17,7 +19,21 @@ class Donations {
         this.donation_store_name= donation_store_name;
         this.donation_giver= donation_giver; 
         this.donation_receiver= donation_receiver;
+        this.number_purchased = number_purchased;
+        this.amount_still_needed = amount_still_needed;
+    }
 
+    updateLeftoverDonationAmount() {
+        try { const response = db.result(`
+                UPDATE 
+                    donations 
+                SET 
+                    amount_still_needed = donation_amount - number_purchased
+        `);
+            return response;
+        } catch(error) {
+            return error.message;
+        }   
     }
 
     static async getAllDonationItems() {
@@ -29,6 +45,7 @@ class Donations {
                     donations
             `);
             return response;
+            
         } catch(error) {
             console.log("Error at getAllDonationItems:", error.message);
             return error.message;
@@ -44,7 +61,9 @@ class Donations {
                     donation_cost,
                     donation_store_name,
                     donation_amount,
-                    donation_photo
+                    donation_photo,
+                    number_purchased,
+                    amount_still_needed
                 FROM
                     ngo_profile,
                     donations
@@ -125,6 +144,7 @@ class Donations {
             return error.message;
         }
     }
+
 }
 
 module.exports = Donations;
