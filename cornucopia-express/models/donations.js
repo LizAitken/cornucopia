@@ -10,7 +10,8 @@ class Donations {
         donation_giver, 
         donation_receiver,
         number_purchased,
-        amount_still_needed
+        amount_still_needed,
+        store_link
     ) {
         this.donation_id= donation_id; 
         this.donation_name= donation_name;
@@ -21,6 +22,7 @@ class Donations {
         this.donation_receiver= donation_receiver;
         this.number_purchased = number_purchased;
         this.amount_still_needed = amount_still_needed;
+        this.store_link = store_link;
     }
 
     updateLeftoverDonationAmount() {
@@ -63,7 +65,8 @@ class Donations {
                     donation_amount,
                     donation_photo,
                     number_purchased,
-                    amount_still_needed
+                    amount_still_needed,
+                    store_link
                 FROM
                     ngo_profile,
                     donations

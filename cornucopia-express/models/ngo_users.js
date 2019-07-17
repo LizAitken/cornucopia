@@ -61,6 +61,7 @@ class NGO_User {
                         WHERE
                             ngo_id = '${ngo_id}'
             `);
+            console.log('get NGO by ID    :',response);
             return response;
         } catch(error) {
             console.log("Error in getNGObyID:", error.message);

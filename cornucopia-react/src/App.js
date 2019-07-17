@@ -5,8 +5,10 @@ import MainNav from './components/mainNav';
 import DonationList from './components/donationList';
 import NGOSignup from './components/NGOSignup';
 import UserSignup from './components/userSignup';
+import NGO_Profile from './components/ngoProfile';
 
 import './App.css';
+
 
 const routesArray = [
   { linkRoute: '/home', linkName: 'Cornupcopia' },
@@ -46,6 +48,7 @@ class App extends Component {
           />
           <Route path="/non-profit/sign-up" component={NGOSignup} />
           <Route path="/user-sign-up" component={UserSignup} />
+          <Route path="/non-profit/profile/:ngo_id" component={NGO_Profile} />
         </div>
       </Router>
     );

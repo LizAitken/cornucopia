@@ -13,7 +13,7 @@ const DonationItem = props => {
              <p>Total Need: {itemData.donation_amount}</p>
              <p>Bought: {itemData.number_purchased}</p>
              <p>Still Need: {itemData.amount_still_needed}</p>
-             <p>From Where: {itemData.donation_store_name}</p>
+             <p>From Where: <a href={itemData.store_link}>{itemData.donation_store_name}</a></p>
              <p>Charity: {itemData.ngo_name}</p>
          </div>   
         </>

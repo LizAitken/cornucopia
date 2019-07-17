@@ -1,7 +1,6 @@
 const express = require('express'),
       router = express.Router(),
       NGO_User = require('../models/ngo_users'),
-      Donations = require('../models/donations'),
       bcrypt = require('bcryptjs');
 
 router.get('/', function(req, res, next) {
@@ -10,9 +9,8 @@ router.get('/', function(req, res, next) {
   
 router.get('/profile/:ngo_id?', async (req, res, next) => {
     const ngoID = req.params.ngo_id;
-    const [ngoInfo, donationInfo] = await Promise.all([NGO_User.getNGObyID(ngoID), Donations.getAllDonationsByNGOid(ngoID)]);
-    console.log("ngo Info and donation info: ", ngoInfo, donationInfo);
-    res.json([ngoInfo, donationInfo]).status(200);
+    const ngoInfo = await NGO_User.getNGObyID(ngoID);
+    res.json(ngoInfo).status(200);
 });
   
 router.post('/sign-up', async (req,res) => {
