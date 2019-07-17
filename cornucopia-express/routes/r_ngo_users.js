@@ -28,9 +28,30 @@ router.post('/sign-up', async (req,res) => {
   
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.password, salt);
-  
     const response = await NGO_User.addNGO(name, email, hash, ein, address, description, type_id, website, photo);
-    console.log('Response : ', response);
+    return response;
+});
+
+router.post('/login', async (req,res) => {
+    const {
+        name,
+        email,
+        } = req.body;    
+    console.log('Login req body: ',req.body);
+  
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(req.body.password, salt);
+    const response = await NGO_User.loginUserByEmail(email);
+
+    if (!!valid_login) {
+        req.session.is_logged_in = true;
+        req.session.user_id = user.id
+        req.session.first_name = user.first_name;
+        req.session.last_name = user.last_name;
+        res.redirect('/');
+    } else {
+        res.sendStatus(401)
+
     return response;
 });
     

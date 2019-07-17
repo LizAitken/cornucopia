@@ -66,7 +66,8 @@ class Donations {
                     donation_photo,
                     number_purchased,
                     amount_still_needed,
-                    store_link
+                    store_link,
+                    donation_receiver
                 FROM
                     ngo_profile,
                     donations

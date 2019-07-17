@@ -89,6 +89,24 @@ class NGO_User {
         }
     }
 
+    static async loginUserByEmail(user_email) {
+        try {
+            const response = await db.result(`
+                SELECT 
+                    first_name,
+                    last_name,
+                    user_email
+                FROM 
+                   user_profile
+                WHERE
+                    user_email = '${user_email}' 
+            `);
+        } catch(error) {
+            console.log('Error at loginUserByEmail')
+            return error.message;
+        }
+    }
+
 }
 
 module.exports = NGO_User;

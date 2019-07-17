@@ -14,13 +14,9 @@ class NGO_Profile extends Component {
     
     loadData = async () => {
         const ngoID = this.props.match.params.ngo_id;
-        console.log('PROPS  :', this.props);
-        console.log('NGO ID   :   ', ngoID);
-
         const url = `http://localhost:3000/non-profit/profile/${ngoID}`;
         const response = await fetch(url);
         let NGOdata = response.json();
-        console.log("From NGO load data", NGOdata);
         return NGOdata;
     };
 
@@ -30,7 +26,12 @@ class NGO_Profile extends Component {
             <>
                 <div>
                     <h1>Profile for Non-Profit</h1>
-                    <p>{ngoInfo.ngo_name}</p>
+                    <h2>{ngoInfo.ngo_name}</h2>
+                    <img src={ngoInfo.photo} alt={ngoInfo.ngo_name} />
+                    <p>{ngoInfo.ngo_address}</p>
+                    <p>{ngoInfo.ngo_email}</p>
+                    <a href={ngoInfo.ngo_website}><p>Visit our Website!</p></a>
+
                 </div>
             </>
         )

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import '../styles/donationItem.css';
 
 const DonationItem = props => {
@@ -14,7 +15,7 @@ const DonationItem = props => {
              <p>Bought: {itemData.number_purchased}</p>
              <p>Still Need: {itemData.amount_still_needed}</p>
              <p>From Where: <a href={itemData.store_link}>{itemData.donation_store_name}</a></p>
-             <p>Charity: {itemData.ngo_name}</p>
+             <p>Charity: <Link to={`/non-profit/profile/${itemData.donation_receiver}`}>{itemData.ngo_name}</Link></p>
          </div>   
         </>
     )
