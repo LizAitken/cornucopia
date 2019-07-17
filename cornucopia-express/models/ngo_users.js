@@ -8,7 +8,6 @@ class NGO_User {
         ngo_password,
         ngo_ein,
         ngo_address,
-        ngo_phone,
         ngo_description,
         ngo_type_id,
         ngo_website,
@@ -20,16 +19,15 @@ class NGO_User {
         this.ngo_password= ngo_password;
         this.ngo_ein= ngo_ein;
         this.ngo_address= ngo_address;
-        this.ngo_phone= ngo_phone;
         this.ngo_description= ngo_description;
         this.ngo_type_id= ngo_type_id;
         this.ngo_website= ngo_website;
         this.ngo_photo= ngo_photo;
     }
 
-    async addNGO() {
+    static async addNGO(ngo_name, ngo_email, ngo_password, ngo_ein, ngo_address, ngo_description, ngo_type_id, ngo_website, ngo_photo) {
         try {
-            const response = await db.one(`
+            const response = await db.result(`
                 INSERT INTO ngo_profile 
                     (
                         ngo_name,
@@ -37,16 +35,14 @@ class NGO_User {
                         ngo_password,
                         ngo_ein,
                         ngo_address,
-                        ngo_phone,
                         ngo_description,
                         ngo_type_id,
                         ngo_website,
                         ngo_photo
                     ) 
                 VALUES 
-                    ($1, $2, $3, $4, $5, $6, $7, $8, $9, null)
-                RETURNING ngo_email
-                `, [this.ngo_name, this.ngo_email, this.ngo_password, this.ngo_ein, this.ngo_address, this.ngo_phone, this.ngo_description, this.ngo_type_id, this.ngo_website ]);
+                    ('${ngo_name}', '${ngo_email}', '${ngo_password}', '${ngo_ein}', '${ngo_address}', '${ngo_description}', '${ngo_type_id}', '${ngo_website}', '${ngo_photo}')
+                `);
             console.log("user was created with email:", response.ngo_email);
             return response;
         } catch(error) {

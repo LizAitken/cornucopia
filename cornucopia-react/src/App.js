@@ -3,10 +3,15 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import MainNav from './components/mainNav';
 import DonationList from './components/donationList';
+import NGOSignup from './components/NGOSignup';
+import UserSignup from './components/userSignup';
+
 import './App.css';
 
 const routesArray = [
-  { linkRoute: '/home', linkName: 'Home' },
+  { linkRoute: '/home', linkName: 'Cornupcopia' },
+  { linkRoute: '/non-profit/sign-up', linkName: 'Non-Profit?'},
+  { linkRoute: '/user-sign-up', linkName: 'Donator?'}
 ]
 
 
@@ -39,6 +44,8 @@ class App extends Component {
           <Route path="/home" 
             render={(props) => <DonationList {...props} itemData={items}/>}
           />
+          <Route path="/non-profit/sign-up" component={NGOSignup} />
+          <Route path="/user-sign-up" component={UserSignup} />
         </div>
       </Router>
     );

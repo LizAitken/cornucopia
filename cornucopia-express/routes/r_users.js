@@ -25,24 +25,16 @@ router.get('/delete/:user_id?', async (req,res, next) => {
   }
 });
 
-router.post('/sign-up', async (req,res) => {
-  const { first_name, last_name, user_email } = req.body;
+router.post('/user-sign-up', async (req,res) => {
+  const { firstName, lastName, email } = req.body;
 
-  const salt = bcrypt.genSaltSync(10),
-        hash = bcrypt.hashSync(req.body.user_password, salt);
-
-  const user = new User( null, first_name, last_name, user_email, hash);
-  const response = await user.addUser();
-
-  response.then(() => {
-    res.redirect('/');
-  });
-
-  if (response.command === "INSERT" && response.rowCount >= 1) {
-    res.sendStatus(200);
-  } else {
-    res.send(`Could not add new user with user name: '${first_name}'`).status(409);
-  }
+  const salt = bcrypt.genSaltSync(10);
+  const hash = bcrypt.hashSync(req.body.password, salt);
+  
+  // const user = new User( null, first_name, last_name, user_email, hash);
+  // console.log('user is: ', user);
+  const response = await User.addUser(firstName, lastName, email, hash);
+  return response;
 });
 
 

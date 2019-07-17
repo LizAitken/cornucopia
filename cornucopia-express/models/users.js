@@ -13,22 +13,24 @@ class User {
         this.last_name = last_name;
         this.user_email = user_email;
         this.user_password = user_password;
+
+        console.log('first name', first_name);
     }
 
-    async addUser() {
+    static async addUser(first_name, last_name, user_email, password) {
+        console.log('Last name in add user   :', last_name);
         try {
-            const response = await db.one(`
+            const response = await db.result(`
                 INSERT INTO user_profile 
                     (
-                    first_name,
-                    last_name,
-                    user_email,
-                    user_password
+                        first_name,
+                        last_name,
+                        user_email,
+                        user_password
                     ) 
                 VALUES 
-                    ($1, $2, $3, $4)
-                RETURNING user_email
-                `, [ this.first_name, this.last_name, this.user_email, this.user_password]);
+                    ('${first_name}', '${last_name}', '${user_email}', '${password}')
+                `);
             console.log("user was created with email:", response.user_email);
             return response;
         } catch(error) {
