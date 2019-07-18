@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../styles/ngoProfile.css';
 
 class NGO_Profile extends Component {
     state = {
@@ -17,6 +18,7 @@ class NGO_Profile extends Component {
         const url = `http://localhost:3000/non-profit/profile/${ngoID}`;
         const response = await fetch(url);
         let NGOdata = response.json();
+        console.log('ngo data', NGOdata);
         return NGOdata;
     };
 
@@ -24,14 +26,19 @@ class NGO_Profile extends Component {
         const { ngoInfo } = this.state;
         return (
             <>
-                <div>
-                    <h1>Profile for Non-Profit</h1>
-                    <h2>{ngoInfo.ngo_name}</h2>
-                    <img src={ngoInfo.photo} alt={ngoInfo.ngo_name} />
-                    <p>{ngoInfo.ngo_address}</p>
-                    <p>{ngoInfo.ngo_email}</p>
-                    <a href={ngoInfo.ngo_website}><p>Visit our Website!</p></a>
-
+                <div className='profile-wrap'>
+                    <h2 className='profile-title'>{ngoInfo.ngo_name}</h2>
+                    <p className='ngo-type'>{ngoInfo.type_name}</p>
+                    <div>
+                        <img className='ngo-photo' src={ngoInfo.ngo_photo} alt={ngoInfo.ngo_name} />
+                        <p className='ngo-description'>{ngoInfo.ngo_description}</p>
+                        <div className='ngo-contact'>
+                            <h3 className='contact-us'>Contact Us</h3>
+                            <p>{ngoInfo.ngo_address}</p>
+                            <a href={ngoInfo.ngo_email}><img className='email-icon' src="https://img.icons8.com/ios/50/000000/new-post.png" alt='email icon'></img></a>
+                            <a href={ngoInfo.ngo_website}><img className='website-icon' src="https://img.icons8.com/wired/64/000000/domain.png" alt='website icon'></img></a>
+                        </div>
+                    </div>
                 </div>
             </>
         )

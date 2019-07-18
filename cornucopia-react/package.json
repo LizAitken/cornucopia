@@ -8,6 +8,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-key-index": "^0.1.1",
+    "react-mailto": "^0.4.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "yup": "^0.27.0"

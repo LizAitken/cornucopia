@@ -58,23 +58,16 @@ class Donations {
         try {
             const response = await db.any(`
                 SELECT
-                    ngo_name,
-                    donation_name,
-                    donation_cost,
-                    donation_store_name,
-                    donation_amount,
-                    donation_photo,
-                    number_purchased,
-                    amount_still_needed,
-                    store_link,
-                    donation_receiver
+                    *
                 FROM
                     ngo_profile,
-                    donations
+                    donations,
+                    ngo_types
                 WHERE
                     ngo_id = donation_receiver
+                    AND
+                    ngo_type_id = type_id
             `);
-            console.log(response);
             return response;
         } catch(error) {
             console.log("Error at getNGONamesForAllItems:", error.message);

@@ -57,9 +57,12 @@ class NGO_User {
                         SELECT
                             *
                         FROM
-                            ngo_profile
+                            ngo_profile,
+                            ngo_types
                         WHERE
                             ngo_id = '${ngo_id}'
+                            AND
+                            ngo_type_id = type_id
             `);
             console.log('get NGO by ID    :',response);
             return response;

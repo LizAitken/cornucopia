@@ -29,9 +29,10 @@
     align-content: center;
     margin: 1rem;
     padding: 0;
-    height: 34.25rem;
+    /* height: 34.5rem; */
     box-shadow: 0 0 20px rgba(0,0,0,0.3);
     border-radius: 3px;
+    background-color: rgb(49, 59, 103);
 }
 
 .image-wrap {
@@ -51,6 +52,7 @@
     margin: 0;
     padding: 2px;
     letter-spacing: 0.12rem;
+    border-bottom: 3px dotted rgba(247, 190, 105, 0.844);
 }
 
 .item-cost {
@@ -62,13 +64,26 @@
     margin: 0;
 }
 
+.ngo-title-wrap {
+    padding: .3rem 0;
+    margin: 0;
+    border-bottom: 2px solid rgb(49, 59, 103);
+    border-top: 2px solid rgb(49, 59, 103);
+    background-color: rgba(247, 190, 105, 0.844);
+}
+
 .ngo-title {
     font-size: 1.3rem;
     font-weight: bold;
-    padding: .5rem 0 1rem 0;
-    margin: 0;
     cursor: pointer;
-    background-color: rgba(247, 190, 105, 0.844);
+    margin: 0;
+}
+
+.subtitle {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-style: italic;
 }
 
 .ngo-title:hover {
@@ -118,7 +133,7 @@
     -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
     -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
     transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-    display: inline-block;
+    /* display: inline-block; */
     margin: 18px auto;
     max-width: 150px;
     text-decoration: none;

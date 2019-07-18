@@ -1,0 +1,44 @@
+
+.profile-wrap {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.profile-title {
+    margin: 2.5rem 0 0 0;
+    letter-spacing: 0.125rem;
+}
+
+.ngo-type {
+    font-style: italic;
+    font-size: 1rem;
+    margin: .5rem 0 2.5rem 0; 
+}
+
+.ngo-photo {
+    width: 15rem;
+    height: auto;
+}
+
+.ngo-description {
+    margin: 3rem;
+    padding: .5rem;
+    border-radius: 3px;
+    background-color: rgba(247, 190, 105, 0.844);
+    box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+}
+
+.contact-us {
+    text-decoration: underline;
+}
+
+.website-icon, .email-icon {
+    width: 2.3rem;
+    height: 2.3rem;
+    margin: 0 1rem 1rem 1rem;
+}
+
+.website-icon:hover, .email-icon:hover {
+    opacity: .5;
+}

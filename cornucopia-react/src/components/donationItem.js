@@ -12,8 +12,11 @@ const DonationItem = props => {
              <div className='image-wrap'>
                 <img src={itemData.donation_photo} alt={itemData.donation_name}/>
              </div>
-             <p className='item-cost'>${itemData.donation_cost}</p>
-             <p className='ngo-title'><Link to={`/non-profit/profile/${itemData.donation_receiver}`}>{itemData.ngo_name}</Link></p>
+             <p className='item-cost'>${itemData.donation_cost}</p>             
+             <div className='ngo-title-wrap'>
+                <p className='ngo-title'><Link to={`/non-profit/profile/${itemData.donation_receiver}`}>{itemData.ngo_name}</Link></p>
+                <p className='subtitle'>{itemData.type_name}</p>
+            </div>
              <div className='numbers-wrap'>
                 <div className='numbers'>
                     <p className='numbers-title'>Total Need</p>
