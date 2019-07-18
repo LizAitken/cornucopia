@@ -6,14 +6,17 @@ import DonationList from './components/donationList';
 import NGOSignup from './components/NGOSignup';
 import UserSignup from './components/userSignup';
 import NGO_Profile from './components/ngoProfile';
+import NGO_Login from './components/ngoLogin';
+
 
 import './App.css';
+
 
 
 const routesArray = [
   { linkRoute: '/home', linkName: 'Cornupcopia' },
   { linkRoute: '/non-profit/sign-up', linkName: 'Non-Profit?'},
-  { linkRoute: '/user-sign-up', linkName: 'Donator?'}
+  { linkRoute: '/user-sign-up', linkName: 'Sign-Up'}
 ]
 
 
@@ -48,6 +51,7 @@ class App extends Component {
           />
           <Route path="/non-profit/sign-up" component={NGOSignup} />
           <Route path="/user-sign-up" component={UserSignup} />
+          <Route path="/ngo-login" component={NGO_Login} />
           <Route path="/non-profit/profile/:ngo_id" component={NGO_Profile} />
         </div>
       </Router>

@@ -1,0 +1,67 @@
+    
+    
+.card-list {
+    display: flexbox;
+    flex-direction: row;
+}
+
+.card-list li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.card-list ul {
+    margin: 0;
+    padding: 0;
+}
+
+.card {
+    border: 2px solid black;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 0;
+}
+
+.image-wrap {
+    object-fit: fill;
+    border-bottom: 3px solid black;
+}
+
+.image-wrap img {
+    margin: 1rem;
+    width: 18rem;
+    object-fit: contain;
+}
+
+.item-name {
+    background-color: white;
+    margin: 0;
+}
+
+.item-cost {
+    color: green;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 0;
+    margin: .4rem;
+}
+
+.ngo-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: .5rem 0 1rem 0;
+}
+.ngo-title a {
+    text-decoration: none;
+    color: black;
+}
+
+.numbers-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: white;
+}

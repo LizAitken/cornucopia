@@ -74,6 +74,7 @@ class Donations {
                 WHERE
                     ngo_id = donation_receiver
             `);
+            console.log(response);
             return response;
         } catch(error) {
             console.log("Error at getNGONamesForAllItems:", error.message);

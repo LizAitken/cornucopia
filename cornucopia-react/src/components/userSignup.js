@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 class UserSignup extends Component {
     constructor(props) {
@@ -73,7 +74,8 @@ class UserSignup extends Component {
                       <input type='text' value={this.state.email} placeholder='Email' onChange={this.handleEmailChange} required/>
                   </label>
                   <input type="submit" value="Submit" />
-                </form>              
+                </form> 
+                <p><Link to={'/non-profit/sign-up'}>Non-Profit Sign-Up</Link></p>             
             </>
         )
     }

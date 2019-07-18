@@ -89,20 +89,21 @@ class NGO_User {
         }
     }
 
-    static async loginUserByEmail(user_email) {
+    static async loginNGOUserByEmail(ngo_email) {
         try {
-            const response = await db.result(`
+            const response = await db.one(`
                 SELECT 
-                    first_name,
-                    last_name,
-                    user_email
+                    ngo_email,
+                    ngo_name                    
                 FROM 
-                   user_profile
+                   ngo_profile
                 WHERE
-                    user_email = '${user_email}' 
+                    ngo_email = '${ngo_email}' 
             `);
+            console.log(response);
+            return response;
         } catch(error) {
-            console.log('Error at loginUserByEmail')
+            console.log('Error at loginNGOUserByEmail')
             return error.message;
         }
     }
