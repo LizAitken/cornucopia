@@ -1,0 +1,22 @@
+
+.about-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2rem;
+
+}
+
+.about-photo {
+    background-image: url("../images/cornucopia.png");
+    background-size: cover;
+    width: 20rem;
+    height: 13rem;
+    display: flex;
+    align-self: center;
+}
+
+.par-wrap {
+    text-align: center;
+    font-size: 1.3rem;
+}

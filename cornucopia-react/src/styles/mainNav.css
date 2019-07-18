@@ -4,10 +4,12 @@
     text-align: center;
     padding: 0;
     margin: 0;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    position: sticky;
 }
 
 .nav-bar li {
-    font-family: 'Oswald', sans-serif;
+    /* font-family: 'Oswald', sans-serif; */
     font-size: 1.2em;
     line-height: 40px;
     height: 40px;
@@ -25,6 +27,7 @@
 }
 
 .home-link {
+    font-weight: bold;
     font-size: 1.4rem;
     cursor: pointer;
 }

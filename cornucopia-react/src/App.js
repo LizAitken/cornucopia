@@ -7,6 +7,7 @@ import NGOSignup from './components/NGOSignup';
 import UserSignup from './components/userSignup';
 import NGO_Profile from './components/ngoProfile';
 import NGO_Login from './components/ngoLogin';
+import About from './components/about';
 
 
 import './App.css';
@@ -46,6 +47,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <MainNav routes={routesArray}/>
+          <Route path='/' exact render={About}/>
           <Route path="/home" 
             render={(props) => <DonationList {...props} itemData={items}/>}
           />
