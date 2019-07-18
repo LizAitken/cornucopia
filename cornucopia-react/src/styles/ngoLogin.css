@@ -4,8 +4,11 @@ h1 {
   
   form {
     max-width: 500px;
-    width: 100%;
-    margin: 0 auto;
+    width: 80%;
+    margin: 2rem auto 1rem auto;
+    padding: 1rem;
+    border-radius: 3px;
+    background-color: rgb(49, 59, 103);
   }
   
   label,
@@ -15,7 +18,7 @@ h1 {
   }
   
   label {
-    margin-bottom: 5px;
+    margin-bottom: 2rem;
     height: 22px;
   }
   
@@ -24,17 +27,7 @@ h1 {
     padding: 10px;
     border-radius: 3px;
     border: 1px solid #777;
-  }
-  
-  input.error {
-    border-color: red;
-  }
-  
-  .input-feedback {
-    color: rgb(235, 54, 54);
-    margin-top: -15px;
-    font-size: 14px;
-    margin-bottom: 20px;
+    
   }
   
   .sign-in-button {
@@ -47,7 +40,22 @@ h1 {
   
   .sign-in-button:hover {
     cursor: pointer;
-    background-color: white;
-    color: rgb(70, 153, 179);
+    background-color: rgba(247, 190, 105, 0.844);
+    color: white;
+    box-shadow: rgba(247, 190, 105, 0.844) 0 80px 0px 2px inset;
+  }
+
+  .under-text {
+    text-align: center;
+  }
+
+  .under-text a{
+    color: black;
+  }
+
+  .under-text a:hover {
+    cursor: pointer;
+    opacity: .8;
+    letter-spacing: 0.12rem;
   }
   

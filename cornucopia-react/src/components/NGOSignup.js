@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../styles/ngoLogin.css';
 
 class NGOSignup extends Component {
     constructor(props) {
@@ -99,7 +100,7 @@ class NGOSignup extends Component {
     render() {
         return (
             <>
-              <h1>Sign-Up</h1>
+              <h1>Non-Profit Sign-Up</h1>
               <form onSubmit={this.handleNGOSubmit}>
                   <label>
                       <input type='text' value={this.state.name} onChange={this.handleNGO_NameChange} placeholder='Non-Profit Name' required/>
@@ -128,7 +129,7 @@ class NGOSignup extends Component {
                   <label>
                       <input type='text' value={this.state.photo} onChange={this.handlePhotoChange} placeholder='Photo URL'/>
                   </label>
-                  <input type="submit" value="Submit" />
+                  <input className='sign-in-button' type="submit" value="Submit" />
               </form>  
             </>
         )

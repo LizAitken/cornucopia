@@ -10,7 +10,10 @@ const MainNav = () => {
           <ul>
                 <li className='route-li'>
                     <NavLink to={'/home'} className='home-link'>Cornucopia</NavLink>
-                    <NavLink to={'/user-sign-up'} className='signup-link'>Sign-Up</NavLink>
+                    <div>
+                        <NavLink to={'/'} className='signup-link'>About</NavLink>
+                        <NavLink to={'/user-sign-up'} className='signup-link'>Sign-Up</NavLink>
+                    </div>
                 </li>
           </ul>
         </nav>

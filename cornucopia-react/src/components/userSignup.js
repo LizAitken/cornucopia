@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import '../styles/ngoLogin.css';
 
 class UserSignup extends Component {
     constructor(props) {
@@ -59,23 +60,25 @@ class UserSignup extends Component {
     render() {
         return (
             <>
-              <h1>Sign-Up</h1> 
-              <form onSubmit={this.handleSubmit}>
-                  <label >
-                      <input type='text' value={this.state.firstName} placeholder='First Name' onChange={this.handleFirstNameChange} required/>
-                  </label>
-                  <label >
-                      <input type='text' value={this.state.lastName} placeholder='Last Name' onChange={this.handleLastNameChange} required/>
-                  </label>
-                  <label>
-                      <input type='password' value={this.state.password} placeholder='password' onChange={this.handlePasswordChange} required/>
-                  </label>
-                  <label>
-                      <input type='text' value={this.state.email} placeholder='Email' onChange={this.handleEmailChange} required/>
-                  </label>
-                  <input type="submit" value="Submit" />
-                </form> 
-                <p><Link to={'/non-profit/sign-up'}>Non-Profit Sign-Up</Link></p>             
+                <div className="form-wrap">
+                    <h1>Sign-Up</h1> 
+                    <form onSubmit={this.handleSubmit}>
+                        <label>
+                            <input type='text' value={this.state.firstName} placeholder='First Name' onChange={this.handleFirstNameChange} required/>
+                        </label>
+                        <label>
+                            <input type='text' value={this.state.lastName} placeholder='Last Name' onChange={this.handleLastNameChange} required/>
+                        </label>
+                        <label>
+                            <input type='password' value={this.state.password} placeholder='Password' onChange={this.handlePasswordChange} required/>
+                        </label>
+                        <label>
+                            <input type='text' value={this.state.email} placeholder='Email' onChange={this.handleEmailChange} required/>
+                        </label>
+                        <input className='sign-in-button' type="submit" value="Submit" />
+                    </form> 
+                    <p className='under-text'>Are you a Non-Profit? <Link to={'/non-profit/sign-up'}>Sign-up here.</Link></p>             
+                </div>
             </>
         )
     }

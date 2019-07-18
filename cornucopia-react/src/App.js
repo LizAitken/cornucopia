@@ -47,14 +47,16 @@ class App extends Component {
       <Router>
         <div className="App">
           <MainNav routes={routesArray}/>
-          <Route path='/' exact render={About}/>
-          <Route path="/home" 
-            render={(props) => <DonationList {...props} itemData={items}/>}
-          />
-          <Route path="/non-profit/sign-up" component={NGOSignup} />
-          <Route path="/user-sign-up" component={UserSignup} />
-          <Route path="/ngo-login" component={NGO_Login} />
-          <Route path="/non-profit/profile/:ngo_id" component={NGO_Profile} />
+          <div className='total-wrap'>
+            <Route path='/' exact render={About}/>
+            <Route path="/home" 
+              render={(props) => <DonationList {...props} itemData={items}/>}
+            />
+            <Route path="/non-profit/sign-up" component={NGOSignup} />
+            <Route path="/user-sign-up" component={UserSignup} />
+            <Route path="/ngo-login" component={NGO_Login} />
+            <Route path="/non-profit/profile/:ngo_id" component={NGO_Profile} />
+          </div>
         </div>
       </Router>
     );

@@ -1,9 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
   background: #A8D0E6;
   font-family: 'Literata', serif;
 }
+
 
 
 
