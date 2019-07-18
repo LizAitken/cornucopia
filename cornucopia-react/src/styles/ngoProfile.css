@@ -8,6 +8,7 @@
 .profile-title {
     margin: 2.5rem 0 0 0;
     letter-spacing: 0.125rem;
+    font-size: 2rem;
 }
 
 .ngo-type {
@@ -22,6 +23,7 @@
 }
 
 .ngo-description {
+    font-size: 1.18rem;
     margin: 3rem;
     padding: .5rem;
     border-radius: 3px;
