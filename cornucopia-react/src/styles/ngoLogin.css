@@ -37,7 +37,7 @@ h1 {
     margin-bottom: 20px;
   }
   
-  button {
+  .sign-in-button {
     padding: 10px 15px;
     background-color: rgb(70, 153, 179);
     color: white;
@@ -45,7 +45,7 @@ h1 {
     background-color: 250ms;
   }
   
-  button:hover {
+  .sign-in-button:hover {
     cursor: pointer;
     background-color: white;
     color: rgb(70, 153, 179);

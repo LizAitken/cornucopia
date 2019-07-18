@@ -16,19 +16,19 @@ const DonationItem = props => {
              <p className='ngo-title'><Link to={`/non-profit/profile/${itemData.donation_receiver}`}>{itemData.ngo_name}</Link></p>
              <div className='numbers-wrap'>
                 <div className='numbers'>
-                    <p className='numbers-title'>Total Need:</p>
+                    <p className='numbers-title'>Total Need</p>
                     <p className='need'>{itemData.donation_amount}</p>
                 </div>
                 <div className='numbers'>
-                    <p className='numbers-title'>Bought:</p>
+                    <p className='numbers-title'>Bought</p>
                     <p className='purchased'>{itemData.number_purchased}</p>
                 </div>
                 <div className='numbers'>
-                    <p className='numbers-title'>Still Need:</p>
+                    <p className='numbers-title'>Still Need</p>
                     <p className='still-need'>{itemData.amount_still_needed}</p>
                 </div>
             </div>
-             <p>From: <a href={itemData.store_link}>{itemData.donation_store_name}</a></p>
+             <button className='registry-button'><a href={itemData.store_link}>REGISTRY</a></button>
          </div>   
         </>
     )

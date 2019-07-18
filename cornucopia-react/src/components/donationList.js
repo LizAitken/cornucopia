@@ -8,7 +8,7 @@ const DonationList = props => {
 
     return (
         <div className='card-list-wrap'>
-          <h1>Items for Donation</h1>
+          <h1>Donations</h1>
           <div className='card-list'>
             <ul>{
               itemData.map((item,index) =>
