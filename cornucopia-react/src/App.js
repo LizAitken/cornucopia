@@ -8,9 +8,10 @@ import UserSignup from './components/userSignup';
 import NGO_Profile from './components/ngoProfile';
 import NGO_Login from './components/ngoLogin';
 import About from './components/about';
-
+import BookMark from './components/bookMarkPage';
 
 import './App.css';
+
 
 
 
@@ -56,6 +57,7 @@ class App extends Component {
             <Route path="/user-sign-up" component={UserSignup} />
             <Route path="/ngo-login" component={NGO_Login} />
             <Route path="/non-profit/profile/:ngo_id" component={NGO_Profile} />
+            <Route path="/wish-list" render={BookMark}/>
           </div>
         </div>
       </Router>
