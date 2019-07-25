@@ -1,6 +1,5 @@
 
 
-
 // documentFragment--use after done?
 ((function(){
     let wrapper= document.createElement('div');
@@ -53,6 +52,17 @@
     inputQuantity.setAttribute('type', 'text');
     inputQuantity.setAttribute('value', '1');
     inputWrap.appendChild(inputQuantity);
+    let submitButton = document.createElement('button');
+    submitButton.textContent = 'Add to My Wish List';
+    box.appendChild(submitButton);
+    let encodedTitle = encodeURIComponent(title1);
+    let encodedPrice = encodeURIComponent(price1);
+    let encodedImage = encodeURIComponent(image2);
+    let encodedQuantity = encodeURIComponent(inputQuantity.value);
+    submitButton.addEventListener('click', function(e) {
+        e.preventDefault;
+        alert('Working button');
+    })
 })())
 
 
