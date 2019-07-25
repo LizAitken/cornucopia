@@ -22,9 +22,11 @@
     box.style.borderRadius='10px';
     box.style.border='3px solid black';
     box.style.backgroundColor='#A8D0E6';
-    let topText = document.createTextNode('Cornucopia');
+    let topText = document.createElement('h1');
+    topText.textContent = 'Cornucopia';
     box.appendChild(topText);
-    let wishListTitle = document.createTextNode('Add Item to Your Wish List?');
+    let wishListTitle = document.createElement('h2');
+    wishListTitle.textContent = 'Add Item to Your Wish List?';
     box.appendChild(wishListTitle);
     let title1 = document.getElementById('productTitle').textContent;
     let title = document.createElement('p');
@@ -52,13 +54,19 @@
     inputQuantity.setAttribute('type', 'text');
     inputQuantity.setAttribute('value', '1');
     inputWrap.appendChild(inputQuantity);
+    let storeName = document.createElement('h4');
+    storeName.textContent = 'Amazon';
+    box.appendChild(storeName);
     let submitButton = document.createElement('button');
     submitButton.textContent = 'Add to My Wish List';
     box.appendChild(submitButton);
+    let currentURL = window.location.href;
     let encodedTitle = encodeURIComponent(title1);
     let encodedPrice = encodeURIComponent(price1);
     let encodedImage = encodeURIComponent(image2);
     let encodedQuantity = encodeURIComponent(inputQuantity.value);
+    let encodedStoreName = encodeURIComponent(storeName);
+    let encodedCurrentURL = encodeURIComponent(currentURL);
     submitButton.addEventListener('click', function(e) {
         e.preventDefault;
         alert('Working button');
