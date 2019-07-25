@@ -143,6 +143,30 @@ class Donations {
         }
     }
 
+    static async addDonation(donation_name, donation_cost, donation_amount, donation_store_name, donation_receiver, donation_photo, number_purchased, store_link) {
+        try {
+            const response = await db.result(`
+                INSERT INTO donations
+                    (
+                        donation_name,
+                        donation_cost,
+                        donation_amount,
+                        donation_store_name,
+                        donation_receiver,
+                        donation_photo,
+                        number_purchased,
+                        store_link
+                    )
+                VALUES
+                    ('${donation_name}', '${donation_cost}', '${donation_amount}', '${donation_store_name}', '${donation_receiver}', '${donation_photo}', '${number_purchased}', '${store_link}')
+            `)
+            return response
+        } catch(error) {
+            console.log("Error in addDonation:", error.message);
+            return error.message;
+        }
+    }
+
 }
 
 module.exports = Donations;
