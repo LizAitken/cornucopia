@@ -17,7 +17,7 @@
     console.log(box);
     box.setAttribute('id', 'box');
     box.style.width='60%';
-    box.style.height='60%';
+    box.style.height='70%';
     box.style.zIndex= '101';
     box.style.borderRadius='10px';
     box.style.border='3px solid black';
@@ -54,6 +54,13 @@
     inputQuantity.setAttribute('type', 'text');
     inputQuantity.setAttribute('value', '1');
     inputWrap.appendChild(inputQuantity);
+    let ngoNameWrap = document.createElement('p');
+    box.appendChild(ngoNameWrap);
+    let ngoName = document.createElement('input');
+    ngoName.setAttribute('type', 'text');
+    ngoName.setAttribute('placeholder', 'Please put your Non-Profit name here');
+    ngoName.setAttribute('value', '');
+    ngoNameWrap.appendChild(ngoName);
     let storeName = document.createElement('h4');
     storeName.textContent = 'Amazon';
     box.appendChild(storeName);
@@ -66,14 +73,20 @@
     let encodedImage = encodeURIComponent(image2);
     let encodedQuantity = encodeURIComponent(inputQuantity.value);
     let encodedStoreName = encodeURIComponent(storeName);
-    let encodedCurrentURL = encodeURIComponent(currentURL);
+    let encodedCurrentURL = encodeURIComponent(currentURL); 
+    const url = `http://localhost:3001/wish-list-item-entry?donation_name=${encodedTitle}&donation_cost=${encodedPrice}&donation_photo=${encodedImage}&donation_amount=${encodedQuantity}&donation_store_name=${encodedStoreName}&donation_receiver${encodedCurrentURL}&donation_photo&store_link`;     
     submitButton.addEventListener('click', function(e) {
         e.preventDefault;
-        alert('Working button');
-    })
+        alert(ngoName.value);
+    }); 
 })())
 
 
+const NGOinfo = `http://localhost:3000/donations/all`;   
+    get(NGOinfo)
+        .then(function(response) {
+            console.log(response.ngo_name);
+        }) 
 
 
 
