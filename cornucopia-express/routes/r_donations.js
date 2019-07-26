@@ -11,18 +11,25 @@ router.get('/all', async (req, res, next) => {
     res.json(allDonations).status(200);
 });
 
-router.get('/wish-list-item-entry', async (req, res, next) => {
+router.post('/wish-list-item-entry', async (req, res, next) => {
     const {
-        title,
-        price,
-        quantity,
-        store_name,
+        donation_name,
+        donation_cost,
+        donation_photo,
+        donation_amount,
+        donation_store_name,
         donation_receiver,
         store_link
          } = req.query;
-    
-    console.log(req.body);
-    const response = await Donations.addDonation(title, price, quantity, store_name, donation_receiver, number_purchased, store_link);
+
+    const response = await Donations.addDonation(
+        donation_name,
+        donation_cost,
+        donation_photo,
+        donation_amount,
+        donation_store_name,
+        donation_receiver,
+        store_link);
     return response; 
 })
 

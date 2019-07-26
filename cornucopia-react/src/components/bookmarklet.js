@@ -48,45 +48,61 @@
     image.style.maxWidth= '300px';
     image.style.objectFit= 'contain';
     imageWrap.appendChild(image);
+    let labelQuantity = document.createElement('p');
+    labelQuantity.textContent = 'How many do you need?';
+    box.appendChild(labelQuantity);
     let inputWrap = document.createElement('p');
     box.appendChild(inputWrap);
     let inputQuantity = document.createElement('input');
-    inputQuantity.setAttribute('type', 'text');
-    inputQuantity.setAttribute('value', '1');
+    inputQuantity.setAttribute('type', 'text');   
+    inputQuantity.setAttribute('value', '0');
     inputWrap.appendChild(inputQuantity);
+    let labelName = document.createElement('p');
+    labelName.textContent = 'Non-Profit ID:';
+    box.appendChild(labelName);
     let ngoNameWrap = document.createElement('p');
     box.appendChild(ngoNameWrap);
     let ngoName = document.createElement('input');
     ngoName.setAttribute('type', 'text');
-    ngoName.setAttribute('placeholder', 'Please put your Non-Profit name here');
-    ngoName.setAttribute('value', '');
+    ngoName.setAttribute('placeholder', 'Please type your Non-Profit ID here');
+    ngoName.setAttribute('value', '0');
     ngoNameWrap.appendChild(ngoName);
     let storeName = document.createElement('h4');
     storeName.textContent = 'Amazon';
+    let storeNameValue = storeName.textContent;
     box.appendChild(storeName);
     let submitButton = document.createElement('button');
     submitButton.textContent = 'Add to My Wish List';
     box.appendChild(submitButton);
-    let currentURL = window.location.href;
-    let encodedTitle = encodeURIComponent(title1);
-    let encodedPrice = encodeURIComponent(price1);
-    let encodedImage = encodeURIComponent(image2);
-    let encodedQuantity = encodeURIComponent(inputQuantity.value);
-    let encodedStoreName = encodeURIComponent(storeName);
-    let encodedCurrentURL = encodeURIComponent(currentURL); 
-    const url = `http://localhost:3001/wish-list-item-entry?donation_name=${encodedTitle}&donation_cost=${encodedPrice}&donation_photo=${encodedImage}&donation_amount=${encodedQuantity}&donation_store_name=${encodedStoreName}&donation_receiver${encodedCurrentURL}&donation_photo&store_link`;     
+    let NGOnameValue = Number(ngoName.value);
+    let newQuantity = Number(inputQuantity.value);
+    const currentURL = window.location.href;
+    const url = `http://localhost:3000/donations/wish-list-item-entry?donation_name=${title1}&donation_cost=${price1}&donation_photo=${image2}&donation_amount=${newQuantity}&donation_store_name=${storeNameValue}&donation_receiver=${NGOnameValue}&store_link=${currentURL}`;     
+    function sendInfo(url) {
+        return fetch(url, {
+            method: 'POST'
+        }).then(response => response.json());
+    }
     submitButton.addEventListener('click', function(e) {
         e.preventDefault;
-        alert(ngoName.value);
+        if (newQuantity === 0 || NGOnameValue === 0) {
+            alert('Please enter the quantity and your non-profit ID!');
+        } else {
+            sendInfo(url);
+        }
+        
     }); 
 })())
 
+let inputQuantityValue = inputQuantity.value;
 
-const NGOinfo = `http://localhost:3000/donations/all`;   
-    get(NGOinfo)
-        .then(function(response) {
-            console.log(response.ngo_name);
-        }) 
+let encodedTitle = encodeURIComponent(title1);
+    let encodedPrice = encodeURIComponent(price1);
+    let encodedImage = encodeURIComponent(image2);
+    let encodedQuantity = encodeURIComponent(inputQuantity.value);
+    let encodedNGOname = encodeURIComponent(ngoName.value);
+    let encodedStoreName = encodeURIComponent(storeName);
+    let encodedCurrentURL = encodeURIComponent(currentURL); 
 
 
 
