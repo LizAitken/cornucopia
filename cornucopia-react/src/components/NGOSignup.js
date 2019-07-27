@@ -123,9 +123,18 @@ class NGOSignup extends Component {
                   <label>
                       <input type='number' value={this.state.ein} onChange={this.handleEINChange} placeholder='EIN'/>
                   </label>
-                  <label>
-                      <input type='number' value={this.state.type_id} onChange={this.handleTypeIDChange} placeholder='Type ID for non-profit' required/>
-                  </label>
+                  <select value={this.state.type_id} onChange={this.handleTypeIDChange} required>
+                        <option value='1'>Animal Welfare</option>
+                        <option value='2'>Environmental & Conservation</option>
+                        <option value='3'>Disaster Relief</option>
+                        <option value='4'>International Development</option>
+                        <option value='5'>Human Rights</option>
+                        <option value='6'>Social Justice</option>
+                        <option value='7'>Health</option>
+                        <option value='8'>Educational</option>
+                        <option value='9'>Arts & Culture</option>
+                        <option value='10'>Religious</option>
+                  </select>
                   <label>
                       <input type='text' value={this.state.photo} onChange={this.handlePhotoChange} placeholder='Photo URL'/>
                   </label>

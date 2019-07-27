@@ -31,7 +31,7 @@ const DonationItem = props => {
                     <p className='still-need'>{itemData.amount_still_needed}</p>
                 </div>
             </div>
-             <button className='registry-button'><a href={itemData.store_link}>WISH LIST</a></button>
+             <button className='registry-button'><a href={itemData.store_link} target='_blank' rel="noopener noreferrer">WISH LIST</a></button>
          </div>   
         </>
     )

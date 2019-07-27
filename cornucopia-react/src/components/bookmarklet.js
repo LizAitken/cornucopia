@@ -1,6 +1,4 @@
 
- wrapper.style.alignContent='center';
-// documentFragment--use after done?
 ((function(){
     let wrapper= document.createElement('div');
     wrapper.style.width='100%';
