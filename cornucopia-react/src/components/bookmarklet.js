@@ -57,12 +57,10 @@
     let title = document.createElement('p');
     title.textContent = title1;
     function replaceSingleQuotes(stringInput) {
-        var newStringInput = stringInput.replace(/'/g, "''");
-        console.log(newStringInput);
+        let newStringInput = stringInput.replace(/'/g, "''");
         return newStringInput;
     }
     let newtitleString = replaceSingleQuotes(title1);
-    console.log(newtitleString);
     secondWrap.appendChild(title);
     function getPrice() {
         try {
