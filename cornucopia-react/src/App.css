@@ -9,6 +9,27 @@ body {
   font-family: 'Literata', serif;
 }
 
+.select-menu {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #777;
+  overflow: hidden;
+  background: white url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+} 
+
+.select-menu select {
+padding: 5px 8px;
+}
+
+.select-menu select:focus {
+outline: none;
+}
+
+select::-ms-expand {
+display: none;
+}
 
 
 

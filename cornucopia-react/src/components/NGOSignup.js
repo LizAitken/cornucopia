@@ -123,7 +123,8 @@ class NGOSignup extends Component {
                   <label>
                       <input type='number' value={this.state.ein} onChange={this.handleEINChange} placeholder='EIN'/>
                   </label>
-                  <select value={this.state.type_id} onChange={this.handleTypeIDChange} required>
+                  <select className='select-menu' value={this.state.type_id} onChange={this.handleTypeIDChange} required>
+                        <option selected disabled>Non-Profit Type</option>
                         <option value='1'>Animal Welfare</option>
                         <option value='2'>Environmental & Conservation</option>
                         <option value='3'>Disaster Relief</option>
