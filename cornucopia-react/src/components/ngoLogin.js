@@ -6,18 +6,10 @@ class NGO_Login extends Component {
     constructor(props) {
         super(props);
         this.state= {
-            ngo_id: [null],
-            name: '', 
+            ngo_id: [null], 
             email: '',
             password: ''
         };
-    }
-
-    handleNGO_NameChange = event => {
-        event.preventDefault();
-        this.setState({
-            name: event.target.value
-        });      
     }
 
     handleNGO_EmailChange = event => {
@@ -55,9 +47,6 @@ class NGO_Login extends Component {
             <>
               <h1>Login</h1>
               <form onSubmit={this.handleNGOSubmit}>
-                  <label>
-                      <input type='text' value={this.state.name} onChange={this.handleNGO_NameChange} placeholder='Non-Profit Name' required/>
-                  </label>
                   <label>
                       <input type='password' value={this.state.password} onChange={this.handleNGO_PasswordChange} placeholder='password' required/>
                   </label>

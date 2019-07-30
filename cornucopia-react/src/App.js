@@ -24,7 +24,8 @@ const routesArray = [
 
 class App extends Component {
   state = {
-    items: []
+    items: [],
+    loggedin: false
   };
 
   async componentDidMount() {

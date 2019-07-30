@@ -94,21 +94,39 @@ class NGO_User {
 
     static async loginNGOUserByEmail(ngo_email) {
         try {
-            const response = await db.one(`
-                SELECT 
-                    ngo_email,
-                    ngo_name                    
+            const response = await db.one(
+                `SELECT 
+                    *                    
                 FROM 
                    ngo_profile
                 WHERE
-                    ngo_email = '${ngo_email}' 
-            `);
+                    ngo_email = $1`,
+                [ngo_email]                 
+            );
             console.log(response);
             return response;
         } catch(error) {
             console.log('Error at loginNGOUserByEmail')
             return error.message;
         }
+    }
+
+    static emailExists(ngo_email) {
+        return db.any(`
+        SELECT *
+        FROM 
+            ngo_profile
+        WHERE 
+            ngo_email = $1
+        `, [ngo_email]).then(data => {
+            let booleanVal = false;
+            if (data.length > 0) {
+                booleanVal = true;
+            } else {
+                booleanVal = false;
+            }
+            return booleanVal;
+        });
     }
 
 }

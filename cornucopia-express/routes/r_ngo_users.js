@@ -25,22 +25,28 @@ router.post('/sign-up', async (req,res) => {
         photo } = req.body;
     
     console.log(req.body);
-  
+    
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.password, salt);
     const response = await NGO_User.addNGO(name, email, hash, ein, address, description, type_id, website, photo);
     return response;
 });
 
-router.post('/login', async (req,res) => {
-    const { ngo_email, ngo_password} = req.body;    
+router.post('/log-in', async (req,res) => {
+    const { email, password} = req.body;    
     console.log('Login req body: ',req.body);
 
-    const NGOuser = await NGO_User.loginNGOUserByEmail(ngo_email);
-    const valid_login = bcrypt.compareSync(ngo_password, NGOuser.ngo_password)
+    const NGOuser = await NGO_User.loginNGOUserByEmail(email);
+    console.log('NGO user', NGOuser);
+    const valid_login = bcrypt.compareSync(password, NGOuser.ngo_password)
     
     if (!!valid_login) {
+        console.log('is logged in');
         req.session.is_logged_in = true;
+        req.session.save()
+        res.json({
+            data:NGOuser
+        });
     } else {
         res.sendStatus(401)
     }
