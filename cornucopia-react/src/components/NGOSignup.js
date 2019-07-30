@@ -106,7 +106,7 @@ class NGOSignup extends Component {
                       <input type='text' value={this.state.name} onChange={this.handleNGO_NameChange} placeholder='Non-Profit Name' required/>
                   </label>
                   <label>
-                      <input type='password' value={this.state.password} onChange={this.handleNGO_PasswordChange} placeholder='password'required/>
+                      <input type='password' value={this.state.password} onChange={this.handleNGO_PasswordChange} placeholder='password' required/>
                   </label>
                   <label>
                       <input type='text' value={this.state.email} onChange={this.handleNGO_EmailChange} placeholder='Email' required/>

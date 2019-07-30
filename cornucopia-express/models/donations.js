@@ -25,18 +25,23 @@ class Donations {
         this.store_link = store_link;
     }
 
-    updateLeftoverDonationAmount() {
-        try { const response = db.result(`
+    static async updateDonatedAmountNumbers(donation_id, number_purchased) {
+        try {
+            const response = await db.result(`
                 UPDATE 
-                    donations 
+                    donations
                 SET 
-                    amount_still_needed = donation_amount - number_purchased
-        `);
+                    amount_still_needed = donation_amount - number_purchased - '${number_purchased}',
+                    number_purchased = number_purchased + '${number_purchased}'
+                WHERE 
+                    donation_id = '${donation_id}';
+            `);
             return response;
         } catch(error) {
             return error.message;
-        }   
+        }
     }
+
 
     static async getAllDonationItems() {
         try {

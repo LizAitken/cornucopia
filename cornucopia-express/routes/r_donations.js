@@ -33,4 +33,16 @@ router.post('/wish-list-item-entry', async (req, res, next) => {
     return response; 
 })
 
+router.post('/add-donated-item', async (req, res) => {
+    const {
+        donation_id,
+        number_purchased
+    } = req.body;
+
+    const response = await Donations.updateDonatedAmountNumbers(
+        donation_id,
+        number_purchased);
+    return response;
+})
+
 module.exports = router;

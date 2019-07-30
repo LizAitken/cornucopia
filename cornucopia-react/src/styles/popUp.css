@@ -8,14 +8,82 @@
     bottom: 0;
     margin: auto;
     background-color: rgba(0,0,0, 0.5);
+    overflow: scroll;
 }
 .popup_inner {
     position: absolute;
-    left: 25%;
-    right: 25%;
-    top: 25%;
-    bottom: 25%;
+    text-align: center;
+    left: 15%;
+    right: 15%;
+    top: 15%;
+    bottom: 15%;
     margin: auto;
-    border-radius: 20px;
+    min-width: 262px;
+    /* border-radius: 20px; */
     background: white;
+    overflow: scroll;
+}
+
+.yes-button, .no-button, .submit-button {
+    background-color: rgba(247, 190, 105, 0.844);
+    font-size: 1rem;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+    margin: 7px;
+    cursor: pointer;
+}
+
+.submit-button {
+    color: black;
+}
+
+.submit-button:hover, .yes-button:hover, .no-button:hover, .close-button:hover {
+    opacity: .5;
+}
+
+.popup-form{
+    background-color: #A8D0E6; 
+    border: 2px solid rgb(49, 59, 103);
+}
+
+.popup-title {
+    background-color: white;
+    margin: 0;
+    padding: 2px;
+    letter-spacing: 0.12rem;
+    border-bottom: 3px dotted rgba(247, 190, 105, 0.844);
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.popup-item-name {
+    font-weight: bold;
+}
+
+.ngo-popup-title {
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: rgba(247, 190, 105, 0.844);
+}
+
+.popup-input-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.popup-input {
+    display: inline-block;
+    width: 3rem;
+}
+
+.close-button {
+    background-color: rgb(49, 59, 103);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    /* justify-self: flex-end; */
 }
