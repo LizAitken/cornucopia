@@ -138,9 +138,10 @@
             const currentURL = window.location.href;  
             let NGOnameValue = Number(ngoName.value);
             let newQuantity = Number(inputQuantity.value);
-            let encodedTitle = encodeURIComponent(newtitleString);  
+            let encodedTitle = encodeURIComponent(newtitleString);
+            const zeroValue = 0;  
             function sendInfo() { 
-                let url = `http://localhost:3000/donations/wish-list-item-entry?donation_name=${encodedTitle}&donation_cost=${price1}&donation_photo=${image2}&donation_amount=${newQuantity}&donation_store_name=${storeNameValue}&donation_receiver=${NGOnameValue}&store_link=${currentURL}`;
+                let url = `http://localhost:3000/donations/wish-list-item-entry?donation_name=${encodedTitle}&donation_cost=${price1}&donation_photo=${image2}&donation_amount=${newQuantity}&number_purchased=${zeroValue}&donation_store_name=${storeNameValue}&donation_receiver=${NGOnameValue}&store_link=${currentURL}`;
                 return fetch(url, {
                     method: 'POST'
                 }).then(response => response.json());
@@ -236,8 +237,9 @@
             let NGOnameValue = Number(ngoName.value);
             let newQuantity = Number(inputQuantity.value);
             let encodedTitle = encodeURIComponent(title1);  
+            const zeroValue = 0;
             function sendInfo() { 
-                let url = `http://localhost:3000/donations/wish-list-item-entry?donation_name=${encodedTitle}&donation_cost=${price1}&donation_photo=${image2}&donation_amount=${newQuantity}&donation_store_name=${storeNameValue}&donation_receiver=${NGOnameValue}&store_link=${currentURL}`;
+                let url = `http://localhost:3000/donations/wish-list-item-entry?donation_name=${encodedTitle}&donation_cost=${price1}&donation_photo=${image2}&donation_amount=${newQuantity}&number_purchased=${zeroValue}&donation_store_name=${storeNameValue}&donation_receiver=${NGOnameValue}&store_link=${currentURL}`;
                 return fetch(url, {
                     method: 'POST'
                 }).then(response => response.json());

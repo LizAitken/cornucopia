@@ -17,6 +17,7 @@ router.post('/wish-list-item-entry', async (req, res, next) => {
         donation_cost,
         donation_photo,
         donation_amount,
+        number_purchased,
         donation_store_name,
         donation_receiver,
         store_link
@@ -27,6 +28,7 @@ router.post('/wish-list-item-entry', async (req, res, next) => {
         donation_cost,
         donation_photo,
         donation_amount,
+        number_purchased,
         donation_store_name,
         donation_receiver,
         store_link);
