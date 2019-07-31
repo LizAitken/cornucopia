@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import '../styles/donationItem.css';
 import Modal from './modal';
+import AddressModal from './addressModal';
 
 class DonationItem extends Component {
     constructor(props) {
@@ -16,8 +17,6 @@ class DonationItem extends Component {
           popupState: !this.state.popupState
         });
     }
-
-
 
     render() {
         const { itemData } = this.props;
@@ -49,10 +48,10 @@ class DonationItem extends Component {
                         <p className='still-need'>{itemData.amount_still_needed}</p>
                     </div>
                 </div>
-                <button onClick={this.togglePopup} className='registry-button'><a href={itemData.store_link} target='_blank' rel="noopener noreferrer">WISH LIST</a></button>
+                <button onClick={this.togglePopup} className='registry-button'>WISH LIST</button>
             </div>
             {!!popupState ? 
-                    <Modal itemData={itemData} togglePopup={this.togglePopup} popupState={popupState}/>
+                    <AddressModal itemData={itemData} togglePopup={this.togglePopup} popupState={popupState}/>
                     : 
                     null
                 }
