@@ -112,7 +112,7 @@ class NGOSignup extends Component {
                       <input type='text' value={this.state.email} onChange={this.handleNGO_EmailChange} placeholder='Email' required/>
                   </label>
                   <label>
-                      <input type='text' value={this.state.address} onChange={this.handleAddressChange} placeholder='Address'/>
+                      <input type='text' value={this.state.address} onChange={this.handleAddressChange} placeholder='Shipping Address' required/>
                   </label>
                   <label>
                       <input type='url' value={this.state.website} onChange={this.handleWebsiteChange} placeholder='Website'/>

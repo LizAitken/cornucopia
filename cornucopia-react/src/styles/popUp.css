@@ -42,9 +42,14 @@
     opacity: .5;
 }
 
-.popup-form{
+.popup-form, .shipping-wrap{
     background-color: #A8D0E6; 
     border: 2px solid rgb(49, 59, 103);
+}
+
+.shipping-wrap {
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 .popup-title {
@@ -59,6 +64,7 @@
 
 .popup-item-name {
     font-weight: bold;
+    font-size: 1.1rem;
 }
 
 .ngo-popup-title {
@@ -86,4 +92,9 @@
     margin-bottom: 10px;
     cursor: pointer;
     /* justify-self: flex-end; */
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }

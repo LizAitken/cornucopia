@@ -1,0 +1,42 @@
+.bookmarklet-wrap {
+    text-align: center;
+}
+
+.first-part, .second-part, .third-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.numbers {
+    align-self: center;
+    border-radius: 50%;
+    width: 3.1rem;
+    height: 1.9rem;
+    padding-bottom: 3.1rem;
+    border: solid 5px rgb(49, 59, 103);
+    background: white;
+}
+
+.bookmark-wrap {
+    width: 14rem;
+    align-self: center;
+    background-color: rgba(247, 190, 105, 0.844);
+    margin: 1rem;
+    padding: .2rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.bookmark-wrap:hover {
+    background-color: rgb(49, 59, 103);
+}
+
+.bookmark-wrap a:hover {
+    color: white;
+}
+
+.p-wrap {
+    font-size: 1.2rem;
+}
+
