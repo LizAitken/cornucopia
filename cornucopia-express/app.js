@@ -5,6 +5,8 @@ const logger = require('morgan');
 const cors = require('cors');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+const NGO_User = require('./models/ngo_users');
+const bcrypt = require('bcryptjs');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/r_users');

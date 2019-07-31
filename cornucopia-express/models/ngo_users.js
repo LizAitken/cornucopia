@@ -93,6 +93,7 @@ class NGO_User {
     }
 
     static async loginNGOUserByEmail(ngo_email) {
+        console.log('ngo email in query:  ', ngo_email);
         try {
             const response = await db.one(
                 `SELECT 

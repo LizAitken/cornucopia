@@ -34,21 +34,31 @@ router.post('/sign-up', async (req,res) => {
 
 router.post('/log-in', async (req,res) => {
     const { email, password} = req.body;    
-    console.log('Login req body: ',req.body);
-
+    // console.log('Login req body: ',req.body);
+    console.log('getting there?');
     const NGOuser = await NGO_User.loginNGOUserByEmail(email);
     console.log('NGO user', NGOuser);
+
     const valid_login = bcrypt.compareSync(password, NGOuser.ngo_password)
     
     if (!!valid_login) {
         console.log('is logged in');
         req.session.is_logged_in = true;
+        req.session.ngo_id = NGOuser.ngo_id;
+        req.session.ngo_name = NGOuser.ngo_name;
+        req.session.ngo_email = NGOuser.ngo_email;
+        req.session.ngo_address = NGOuser.ngo_address;
+        req.session.ngo_website = NGOuser.ngo_website;
+        req.session.ngo_description = NGOuser.ngo_description;
+        NGOuser["login"] = true;
         req.session.save()
         res.json({
             data:NGOuser
         });
+        console.log(data);
     } else {
         res.sendStatus(401)
+        console.log('wrong pw');
     }
 });
     
