@@ -2,6 +2,10 @@
     text-align: center;
 }
 
+.instructions {
+    margin: 1rem;
+}
+
 .first-part, .second-part, .third-part {
     display: flex;
     flex-direction: column;
@@ -38,5 +42,9 @@
 
 .p-wrap {
     font-size: 1.2rem;
+    font-weight: bold;
 }
 
+.p-wrap a {
+    text-decoration: underline;
+}

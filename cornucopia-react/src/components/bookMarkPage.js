@@ -12,8 +12,8 @@ const BookMark = () => {
                             <h1 className='numbers'>1</h1>
                             <div className='p-wrap'>
                                 <p>Add items to your wish list through your bookmark</p>
+                                <p>Drag this button to your bookmarks bar:</p>
                             </div>
-                            <p>Drag this button to your bookmarks bar:</p>
                             <div className='bookmark-wrap'>
                                 <h2 className='bookmarklet'><a href={dynamicURL}>Add to Wish List</a></h2>
                             </div>
@@ -25,13 +25,13 @@ const BookMark = () => {
                          <div className='second-part'>
                             <h1 className='numbers'>2</h1>
                             <div className='p-wrap'>
-                                <p>Navigate to Amazon and find an item you would like to add to your wish list.</p>
+                                <p>Navigate to <a href='https://www.amazon.com/' target='_blank' rel="noopener noreferrer">Amazon</a> and find an item you would like to add to your wish list.</p>
                             </div>
                         </div>
                         <div className='third-part'>
                             <h1 className='numbers'>3</h1>
                             <div className='p-wrap'>
-                                <p>Click on your 'Add to Wish List' bookmarklet!</p>
+                                <p>While on a specific item, click on your 'Add to Wish List' bookmarklet!</p>
                             </div>
                         </div>
                 </div>
