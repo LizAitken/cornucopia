@@ -22,9 +22,6 @@ class DonationList extends Component {
 
   componentDidMount = async () => {
     const itemData = await this.props.getAllItems();
-
-    console.log('props   ',this.props);
-    console.log('component did mount', itemData);
     this.setState({
       sortedItemData: itemData
     });
@@ -47,8 +44,8 @@ class DonationList extends Component {
     return (
           <div className='card-list-wrap'>
             <h1>Donations</h1>
-            <form>
-              <p>Sort By Non-Profit Type</p>
+            <form className='sorting-form'>
+              <p className='sorting-title'>Sort By Non-Profit Type</p>
               <select className='select-menu' value={type_id} onChange={(e) => this.handleTypeNameChange(e)}>
                   <option>All</option>
                   <option value='1'>Animal Welfare</option>
