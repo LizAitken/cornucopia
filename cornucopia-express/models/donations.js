@@ -172,6 +172,30 @@ class Donations {
         }
     }
 
+    static async getItemsByTypeName(type_id) {
+        try {
+            const response = await db.any(`
+                SELECT 
+                    *
+                FROM
+                    donations,
+                    ngo_profile,
+                    ngo_types
+                WHERE
+                    donation_receiver = ngo_id
+                AND
+                    ngo_type_id = type_id
+                AND
+                    type_id = '${type_id}'
+            `)
+            console.log(response);
+            return response;
+        } catch(err) {
+            console.log('Error at get items by type id :', err.message);
+            return err.message;
+        }
+    }
+
 }
 
 module.exports = Donations;

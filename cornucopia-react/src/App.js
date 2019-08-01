@@ -67,7 +67,7 @@ class App extends Component {
 
   async componentDidMount() {
     const data = await this.loadData();
-    console.log('did mount data  : ', data);
+    // console.log('did mount data  : ', data);
     this.setState({
       items: data
     });
@@ -76,9 +76,9 @@ class App extends Component {
   loadData = async () => {
     const url = `http://localhost:3000/donations/all`;
     const response = await fetch(url);
-    console.log('donations all response   :',response);
+    // console.log('donations all response   :',response);
     let data = response.json();
-    console.log("From load data", data);
+    // console.log("From load data", data);
     return data;
   };
 
