@@ -20,8 +20,10 @@ class DonationList extends Component {
     });
   }
 
-  componentDidMount() {
-    const { itemData } = this.props;
+  componentDidMount = async () => {
+    const itemData = await this.props.getAllItems();
+
+    console.log('props   ',this.props);
     console.log('component did mount', itemData);
     this.setState({
       sortedItemData: itemData

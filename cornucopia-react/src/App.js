@@ -85,6 +85,7 @@ class App extends Component {
   render() {
     const { items, isloggedin } = this.state;
     console.log(isloggedin);
+    console.log(items);
 
     return (
       <Router>
@@ -94,7 +95,7 @@ class App extends Component {
               <div className='total-wrap'>
                 <Route path='/' exact render={About}/>
                 <Route path="/home" 
-                  render={(props) => <DonationList {...props} itemData={items}/>}
+                  render={(props) => <DonationList {...props} itemData={items} getAllItems={this.loadData}/>}
                 />
                 <Route path="/non-profit/sign-up" component={NGOSignup} />
                 <Route path="/user-sign-up" component={UserSignup} />
