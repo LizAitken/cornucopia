@@ -11,6 +11,7 @@ import NGOProfile from './components/ngoProfile';
 import NGOLogin from './components/ngoLogin';
 import About from './components/about';
 import BookMark from './components/bookMarkPage';
+import PlzLogin from './components/plzLogin';
 
 import './App.css';
 
@@ -114,6 +115,7 @@ class App extends Component {
                   <Route path="/non-profit/sign-up" component={NGOSignup} />
                   <Route path="/user-sign-up" component={UserSignup} />
                   <Route path='/' exact render={About}/>
+                  <Route path='/home' render={PlzLogin}/>
                 </>
             }
           </div> 

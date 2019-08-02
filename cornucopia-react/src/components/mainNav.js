@@ -14,7 +14,7 @@ const MainNav = props => {
                             {!isloggedin ?
                             <NavLink to={'/ngo-login'} className='signup-link'>Log-In</NavLink>
                             :
-                            <button onClick={props.handleLogoutState()}>Log-Out</button>
+                            <button className='logout-text' onClick={props.handleLogoutState()}>Log-Out</button>
                             }
                         </div>
                     </li>

@@ -81,7 +81,6 @@ class NGOLogin extends Component {
     };
 
     render() {
-        const { login } = this.state;
         
         return (
             <>
@@ -91,11 +90,11 @@ class NGOLogin extends Component {
                       <input type='text' name='email' value={this.state.email} onChange={this.handleNGO_EmailChange} placeholder='Email' required/>
                   </label>
                   <label>
-                      <input type='password' value={this.state.password} onChange={this.handleNGO_PasswordChange} placeholder='password' required/>
+                      <input type='password' value={this.state.password} onChange={this.handleNGO_PasswordChange} placeholder='Password' required/>
                   </label>
-                  <input type="submit" value="Submit" />
+                  <input className="sign-in-button" type="submit" value="Submit" />
               </form>
-              <p>Not signed up yet? <Link to="/non-profit/sign-up">Non-Profit Sign Up Here</Link></p>  
+              <p className='under-text'>Not signed up yet? <Link to="/non-profit/sign-up">Non-Profit Sign Up Here</Link></p>  
             </>
         )
     }

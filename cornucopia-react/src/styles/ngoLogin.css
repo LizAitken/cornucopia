@@ -39,7 +39,7 @@ h1 {
     background-color: 250ms;
   }
   
-  .sign-in-button:hover {
+  .sign-in-button:hover, .goto-login {
     cursor: pointer;
     background-color: rgba(247, 190, 105, 0.844);
     color: white;
@@ -60,4 +60,18 @@ h1 {
     letter-spacing: 0.12rem;
   }
 
+  .goto-login a{
+    padding: 10px 15px;
+    background-color: rgb(49, 59, 103);
+    color: white;
+    border: 1px solid rgb(49, 59, 103);
+    background-color: 250ms;
+  }
+
+  .goto-login a:hover {
+    background-color: white;
+    color: rgb(49, 59, 103);
+  }
+
+  
   

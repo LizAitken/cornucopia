@@ -37,9 +37,17 @@
     cursor: pointer;
 }
 
-.home-link:hover, .signup-link:hover {
+.home-link:hover, .signup-link:hover, .logout-text:hover{
     background-color: rgba(247, 190, 105, 0.844);
     transition: .4s background-color;
     cursor: pointer;
+}
+
+.logout-text {
+    color: white;
+    font-size: 1rem;
+    font-family: 'Literata', serif;
+    background-color: rgb(49, 59, 103);
+    border: none;
 }
 
