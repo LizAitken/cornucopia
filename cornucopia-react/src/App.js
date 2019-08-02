@@ -88,15 +88,15 @@ class App extends Component {
 
   render() {
     const { items, isloggedin } = this.state;
-    console.log(items);
+    // console.log(items);
     window.sessionStorage.setItem('loggedInStatus', isloggedin);
     let loggedInStatus = window.sessionStorage.getItem('loggedInStatus'); 
-    console.log('THis IS THE LOGGED IN STATUS VARIABLE', loggedInStatus);
+    // console.log('THis IS THE LOGGED IN STATUS VARIABLE', loggedInStatus);
 
     return (
       <Router>
           <div className="App">
-            <MainNav routes={routesArray} handleLogoutState={(e) => this.handleLogoutState}/>
+            <MainNav routes={routesArray} handleLogoutState={(e) => this.handleLogoutState} isloggedin={isloggedin} />
             {loggedInStatus === 'true' ?
               <div className='total-wrap'>
                 <Route path='/' exact render={About}/>
