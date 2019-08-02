@@ -25,7 +25,7 @@ const routesArray = [
 class App extends Component {
   state = {
     items: [],
-    isloggedin: true,
+    isloggedin: false,
     ngo_id: [null], 
     ngo_name: "", 
     ngo_email:"", 
@@ -37,8 +37,6 @@ class App extends Component {
   };
 
   handleLoginState = user => {
-
-    localStorage.set('UserInfo', user);
 
     const {
             ngo_id, 
