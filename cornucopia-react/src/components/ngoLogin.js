@@ -11,20 +11,23 @@ class NGOLogin extends Component {
             ngo_id: [null], 
             email: '',
             password: '',
-            login: false,
             redirect: false
         };
     }
 
     setRedirect = () => {
+        console.log('redirecting....');
         this.setState({
-            redirect:true
+            redirect: true
         });
     }
 
     renderRedirect = () => {
         if (this.state.redirect) {
+            console.log('render redirect   :   ',this.state.redirect);
             return <Redirect to='/home' />
+        } else {
+            console.log('did not redirect');
         }
     }
 
@@ -46,7 +49,8 @@ class NGOLogin extends Component {
         e.preventDefault();
         const newInfo = this.state;
         const url = `http://localhost:3000/non-profit/log-in`;
-        
+        this.setRedirect();
+
         try {
             const response = await fetch(url, {
                 method: "POST",
@@ -57,7 +61,7 @@ class NGOLogin extends Component {
                 body: JSON.stringify(newInfo)
             });
             const userData = await response.json();
-           
+
             if (!!userData.data) {
                 const { ngo_id, ngo_name, ngo_email, ngo_address, ngo_website, ngo_photo, ngo_description } = userData.data;
                 this.props.handleLoginState({
@@ -83,7 +87,7 @@ class NGOLogin extends Component {
               <h1>Login</h1>
               <form onSubmit={this.handleNGOSubmit}>
                  <label>
-                      <input type='text' value={this.state.email} onChange={this.handleNGO_EmailChange} placeholder='Email' required/>
+                      <input type='text' name='email' value={this.state.email} onChange={this.handleNGO_EmailChange} placeholder='Email' required/>
                   </label>
                   <label>
                       <input type='password' value={this.state.password} onChange={this.handleNGO_PasswordChange} placeholder='password' required/>

@@ -37,7 +37,6 @@ class App extends Component {
   };
 
   handleLoginState = user => {
-
     const {
             ngo_id, 
             ngo_name, 
@@ -47,6 +46,7 @@ class App extends Component {
             ngo_photo, 
             ngo_description 
           } = user;
+    
     this.setState({
           isloggedin: true,
           ngo_id, 
@@ -57,12 +57,17 @@ class App extends Component {
           ngo_photo, 
           ngo_description
     });
+    // console.log('user  :', user);
+    window.sessionStorage.setItem('user', JSON.stringify(user));
+    // const storedItem = sessionStorage.getItem('user');
+    // console.log('stored item: ', storedItem);
   }
 
   handleLogoutState = () => {
+    window.sessionStorage.clear();
     console.log("logout handler");
   }
-
+  
   async componentDidMount() {
     const data = await this.loadData();
     // console.log('did mount data  : ', data);
@@ -71,25 +76,26 @@ class App extends Component {
     });
   };
 
+
   loadData = async () => {
     const url = `http://localhost:3000/donations/all`;
     const response = await fetch(url);
-    // console.log('donations all response   :',response);
     let data = response.json();
-    // console.log("From load data", data);
     return data;
   };
 
   render() {
     const { items, isloggedin } = this.state;
-    console.log(isloggedin);
     console.log(items);
+    window.sessionStorage.setItem('loggedInStatus', isloggedin);
+    let loggedInStatus = window.sessionStorage.getItem('loggedInStatus'); 
+    console.log('THis IS THE LOGGED IN STATUS VARIABLE', loggedInStatus);
 
     return (
       <Router>
           <div className="App">
             <MainNav routes={routesArray}/>
-            {!!isloggedin ?
+            {loggedInStatus === 'true' ?
               <div className='total-wrap'>
                 <Route path='/' exact render={About}/>
                 <Route path="/home" 
@@ -101,13 +107,10 @@ class App extends Component {
                 <Route path="/wish-list" render={BookMark}/>
               </div>
               :
-              <>
-                <Route path="/non-profit/sign-up" component={NGOSignup} />
-                <Route path="/user-sign-up" component={UserSignup} />
-                <Route path="/ngo-login" render={(props) => (<NGOLogin {...props} user={this.state} handleLoginState={this.handleLoginState}/>)} />
-
-              </>
-              }
+                <>
+                  <Route path="/ngo-login" render={(props) => (<NGOLogin {...props} user={this.state} loggingInTest={this.loggedInStatus} handleLoginState={this.handleLoginState}/>)} />
+                </>
+            }
           </div> 
       </Router>
     );

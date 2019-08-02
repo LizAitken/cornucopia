@@ -41,32 +41,32 @@ app.use(session({
 //     saveUninitialized: true,
 //     is_logged_in: false
 // }));
-app.post('/non-profit/log-in', async (req,res) => {
-    const { email, password} = req.body;    
-    console.log('Login req body: ',req.body);
+// app.post('/non-profit/log-in', async (req,res) => {
+//     const { email, password} = req.body;    
+//     console.log('Login req body: ',req.body);
 
-    const NGOuser = await NGO_User.loginNGOUserByEmail(email);
-    console.log('NGO user', NGOuser);
-    const valid_login = bcrypt.compareSync(password, NGOuser.ngo_password)
+//     const NGOuser = await NGO_User.loginNGOUserByEmail(email);
+//     console.log('NGO user', NGOuser);
+//     const valid_login = bcrypt.compareSync(password, NGOuser.ngo_password)
     
-    if (!!valid_login) {
-        console.log('is logged in');
-        req.session.is_logged_in = true;
-        req.session.save()
-        res.json({
-            data:NGOuser
-        });
-    } else {
-        res.sendStatus(401)
-    }
-});
-app.use('*', function(req, res, next) {
-    if(!!req.session.is_logged_in) {
-        next();
-    } else {
-        res.sendStatus(401);  
-    }
-});
+//     if (!!valid_login) {
+//         console.log('is logged in');
+//         req.session.is_logged_in = true;
+//         req.session.save()
+//         res.json({
+//             data:NGOuser
+//         });
+//     } else {
+//         res.sendStatus(401)
+//     }
+// });
+// app.use('*', function(req, res, next) {
+//     if(!!req.session.is_logged_in) {
+//         next();
+//     } else {
+//         res.sendStatus(401);  
+//     }
+// });
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
