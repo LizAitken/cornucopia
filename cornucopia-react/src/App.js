@@ -66,7 +66,9 @@ class App extends Component {
   handleLogoutState = (e) => {
     e.preventDefault();
     window.sessionStorage.clear();
-    console.log("logout handler");
+    this.setState({
+      isloggedin:false
+    });
   }
   
   async componentDidMount() {
