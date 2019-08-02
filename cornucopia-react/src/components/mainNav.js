@@ -1,9 +1,8 @@
 import React from "react";
-import PropTypes from 'prop-types';
 import { NavLink } from "react-router-dom";
 import '../styles/mainNav.css';
 
-const MainNav = () => {
+const MainNav = (props) => {
 
     return (
         <nav className='nav-bar'>
@@ -12,7 +11,8 @@ const MainNav = () => {
                     <NavLink to={'/home'} className='home-link'>Cornucopia</NavLink>
                     <div>
                         <NavLink to={'/'} className='signup-link'>About</NavLink>
-                        <NavLink to={'/user-sign-up'} className='signup-link'>Sign-Up</NavLink>
+                        <NavLink to={'/ngo-login'} className='signup-link'>Log-In</NavLink>
+                        <button onClick={props.handleLogoutState()}>Log-Out</button>
                     </div>
                 </li>
           </ul>
@@ -21,7 +21,3 @@ const MainNav = () => {
 };
 
 export default MainNav;
-
-MainNav.propTypes = {
-    routes: PropTypes.array
-};

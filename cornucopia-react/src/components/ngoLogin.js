@@ -49,7 +49,8 @@ class NGOLogin extends Component {
         e.preventDefault();
         const newInfo = this.state;
         const url = `http://localhost:3000/non-profit/log-in`;
-        this.setRedirect();
+        this.setRedirect()
+        this.renderRedirect();
 
         try {
             const response = await fetch(url, {

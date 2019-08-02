@@ -18,7 +18,7 @@ import './App.css';
 const routesArray = [
   { linkRoute: '/home', linkName: 'Cornupcopia' },
   { linkRoute: '/non-profit/sign-up', linkName: 'Non-Profit?'},
-  { linkRoute: '/user-sign-up', linkName: 'Sign-Up'}
+  { linkRoute: '/ngo-login', linkName: 'Log-In'}
 ]
 
 
@@ -63,7 +63,8 @@ class App extends Component {
     // console.log('stored item: ', storedItem);
   }
 
-  handleLogoutState = () => {
+  handleLogoutState = (e) => {
+    e.preventDefault();
     window.sessionStorage.clear();
     console.log("logout handler");
   }
@@ -75,7 +76,6 @@ class App extends Component {
       items: data
     });
   };
-
 
   loadData = async () => {
     const url = `http://localhost:3000/donations/all`;
@@ -94,7 +94,7 @@ class App extends Component {
     return (
       <Router>
           <div className="App">
-            <MainNav routes={routesArray}/>
+            <MainNav routes={routesArray} handleLogoutState={(e) => this.handleLogoutState}/>
             {loggedInStatus === 'true' ?
               <div className='total-wrap'>
                 <Route path='/' exact render={About}/>
@@ -109,6 +109,9 @@ class App extends Component {
               :
                 <>
                   <Route path="/ngo-login" render={(props) => (<NGOLogin {...props} user={this.state} loggingInTest={this.loggedInStatus} handleLoginState={this.handleLoginState}/>)} />
+                  <Route path="/non-profit/sign-up" component={NGOSignup} />
+                  <Route path="/user-sign-up" component={UserSignup} />
+                  <Route path='/' exact render={About}/>
                 </>
             }
           </div> 
