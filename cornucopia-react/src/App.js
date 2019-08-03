@@ -58,7 +58,6 @@ class App extends Component {
           ngo_photo, 
           ngo_description
     });
-    // console.log('user  :', user);
     window.sessionStorage.setItem('user', JSON.stringify(user));
     // const storedItem = sessionStorage.getItem('user');
     // console.log('stored item: ', storedItem);
@@ -104,18 +103,19 @@ class App extends Component {
                 <Route path="/home" 
                   render={(props) => <DonationList {...props} itemData={items} getAllItems={this.loadData}/>}
                 />
-                <Route path="/non-profit/sign-up" component={NGOSignup} />
+                <Route path="/non-profit/sign-up" render={(props) => (<NGOSignup {...props} isloggedin={isloggedin}/>)}/>
                 <Route path="/user-sign-up" component={UserSignup} />
                 <Route path="/non-profit/profile/:ngo_id" component={NGOProfile} />
                 <Route path="/wish-list" render={BookMark}/>
               </div>
               :
                 <>
-                  <Route path="/ngo-login" render={(props) => (<NGOLogin {...props} user={this.state} loggingInTest={this.loggedInStatus} handleLoginState={this.handleLoginState}/>)} />
-                  <Route path="/non-profit/sign-up" component={NGOSignup} />
+                  <Route path="/ngo-login" render={(props) => (<NGOLogin {...props} user={this.state} handleLoginState={this.handleLoginState}/>)} />
+                  <Route path="/non-profit/sign-up" render={(props) => (<NGOSignup {...props} user={this.state} isloggedin={isloggedin} handleLoginState={this.handleLoginState}/>)} />
                   <Route path="/user-sign-up" component={UserSignup} />
                   <Route path='/' exact render={About}/>
                   <Route path='/home' render={PlzLogin}/>
+                  <Route path="/wish-list" render={PlzLogin}/>
                 </>
             }
           </div> 

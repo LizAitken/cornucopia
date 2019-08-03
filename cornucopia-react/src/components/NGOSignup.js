@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import '../styles/ngoLogin.css';
+
 
 class NGOSignup extends Component {
     constructor(props) {
@@ -14,8 +18,25 @@ class NGOSignup extends Component {
             description: '',
             type_id: '',
             website: '',
-            photo: ''
+            photo: '',
+            userCreated: false
         };
+    }
+
+    setRedirect = () => {
+        console.log('redirecting....');
+        this.setState({
+            redirect: true
+        });
+    }
+
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            console.log('render redirect   :   ',this.state.redirect);
+            return <Redirect to='/home' />
+        } else {
+            console.log('did not redirect');
+        }
     }
 
     handleNGO_NameChange = event => {
@@ -81,27 +102,59 @@ class NGOSignup extends Component {
         });      
     }
 
-    handleNGOSubmit = async () => {
+    handleNGOSignInSubmit = async (e) => {
+        e.preventDefault();
         const newInfo = this.state;
-        console.log('New Info : ', newInfo);
         const url = `http://localhost:3000/non-profit/sign-up`;
-        const response = await fetch(url, {
-            method: "POST",
-            headers: {
-                Accept:"application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newInfo)
-        });
-        console.log('handle Submit: ', response);
-        return response;
-    }
+        console.log(url);
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    Accept:"application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newInfo)
+            })
+            console.log(response);
+            if (response.ok) {
+                this.setState({
+                    userCreated: true
+                });
+            } else {
+                console.log('Nope, try again')
+            }
+            console.log("userCreated: ", this.state.userCreated);
+            const userData = await response.json();
+            console.log(userData);
+            if (!!userData.data) {
+                const { ngo_id, ngo_name, ngo_email, ngo_address, ngo_website, ngo_photo, ngo_description } = userData.data;
+                this.props.handleLoginState({
+                    ngo_id, 
+                    ngo_name, 
+                    ngo_email, 
+                    ngo_address, 
+                    ngo_website, 
+                    ngo_photo, 
+                    ngo_description
+                });
+            }
+        } catch (err) {
+            console.log('NGO signup submit error', err);
+        }
+        // this.props.history.push('/home');
+    };
 
     render() {
+        const { userCreated } = this.state;
+        let loggedInStatus = window.sessionStorage.getItem('loggedInStatus'); 
+        console.log('THis IS THE LOGGED IN STATUS VARIABLE', loggedInStatus);
+
+
         return (
             <>
               <h1>Non-Profit Sign-Up</h1>
-              <form onSubmit={this.handleNGOSubmit}>
+              <form onSubmit={this.handleNGOSignInSubmit}>
                   <label>
                       <input type='text' value={this.state.name} onChange={this.handleNGO_NameChange} placeholder='Non-Profit Name' required/>
                   </label>
@@ -124,7 +177,7 @@ class NGOSignup extends Component {
                       <input type='number' value={this.state.ein} onChange={this.handleEINChange} placeholder='EIN'/>
                   </label>
                   <select className='select-menu' value={this.state.type_id} onChange={this.handleTypeIDChange} required>
-                        <option selected disabled>Non-Profit Type</option>
+                        <option value='DEFAULT' disabled>Non-Profit Type</option>
                         <option value='1'>Animal Welfare</option>
                         <option value='2'>Environmental & Conservation</option>
                         <option value='3'>Disaster Relief</option>
@@ -139,11 +192,13 @@ class NGOSignup extends Component {
                   <label>
                       <input type='text' value={this.state.photo} onChange={this.handlePhotoChange} placeholder='Photo URL'/>
                   </label>
-                  <input className='sign-in-button' type="submit" value="Submit" />
-              </form>  
+                  <input className='sign-in-button' type="submit" value="Submit" />     
+              </form> 
+              {!!userCreated ? <Redirect to = "/home"/> : ""} 
+              <button><Link to={'/wish-list'}>Create My Wish-List!</Link></button>
             </>
         )
     }
 }
 
-export default NGOSignup; 
+export default withRouter(NGOSignup); 

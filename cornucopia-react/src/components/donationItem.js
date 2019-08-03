@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import '../styles/donationItem.css';
-import Modal from './modal';
 import AddressModal from './addressModal';
 
 class DonationItem extends Component {

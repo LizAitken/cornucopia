@@ -10,8 +10,7 @@ class NGOLogin extends Component {
         this.state= {
             ngo_id: [null], 
             email: '',
-            password: '',
-            redirect: false
+            password: ''
         };
     }
 
@@ -60,7 +59,7 @@ class NGOLogin extends Component {
                 body: JSON.stringify(newInfo)
             });
             const userData = await response.json();
-
+            console.log(userData);
             if (!!userData.data) {
                 const { ngo_id, ngo_name, ngo_email, ngo_address, ngo_website, ngo_photo, ngo_description } = userData.data;
                 this.props.handleLoginState({
@@ -81,7 +80,6 @@ class NGOLogin extends Component {
     };
 
     render() {
-        
         return (
             <>
               <h1>Login</h1>
@@ -100,4 +98,4 @@ class NGOLogin extends Component {
     }
 }
 
-export default NGOLogin;
+export default withRouter(NGOLogin);
