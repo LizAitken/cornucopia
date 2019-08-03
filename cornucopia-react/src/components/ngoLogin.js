@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import '../styles/ngoLogin.css';
 
@@ -15,21 +15,21 @@ class NGOLogin extends Component {
         };
     }
 
-    setRedirect = () => {
-        console.log('redirecting....');
-        this.setState({
-            redirect: true
-        });
-    }
+    // setRedirect = () => {
+    //     console.log('redirecting....');
+    //     this.setState({
+    //         redirect: true
+    //     });
+    // }
 
-    renderRedirect = () => {
-        if (this.state.redirect) {
-            console.log('render redirect   :   ',this.state.redirect);
-            return <Redirect to='/home' />
-        } else {
-            console.log('did not redirect');
-        }
-    }
+    // renderRedirect = () => {
+    //     if (this.state.redirect) {
+    //         console.log('render redirect   :   ',this.state.redirect);
+    //         return <Redirect to='/home' />
+    //     } else {
+    //         console.log('did not redirect');
+    //     }
+    // }
 
     handleNGO_EmailChange = event => {
         event.preventDefault();
@@ -49,8 +49,6 @@ class NGOLogin extends Component {
         e.preventDefault();
         const newInfo = this.state;
         const url = `http://localhost:3000/non-profit/log-in`;
-        this.setRedirect()
-        this.renderRedirect();
 
         try {
             const response = await fetch(url, {
@@ -75,9 +73,11 @@ class NGOLogin extends Component {
                     ngo_description
                 });
             }
+            
         } catch (err) {
             console.log('NGO login submit error', err);
         }
+        this.props.history.push('/home');
     };
 
     render() {
