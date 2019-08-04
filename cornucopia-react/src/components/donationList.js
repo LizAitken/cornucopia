@@ -36,7 +36,7 @@ class DonationList extends Component {
   };
     
   render() {
-    //const { itemData } = this.props;
+    const { isloggedin } = this.props;
     const { type_id, sortedItemData } = this.state;
   
     console.log('second type name', type_id);
@@ -64,7 +64,7 @@ class DonationList extends Component {
               <ul>{
                 sortedItemData.map((item,index) =>
                   <li key={index}>
-                    <DonationItem itemData={item}/>
+                    <DonationItem itemData={item} isloggedin={isloggedin}/>
                   </li>)
               }</ul>
             </div>

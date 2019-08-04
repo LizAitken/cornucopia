@@ -76,7 +76,7 @@ class NGOLogin extends Component {
         } catch (err) {
             console.log('NGO login submit error', err);
         }
-        this.props.history.push('/home');
+        this.props.history.push('/wish-list');
     };
 
     render() {

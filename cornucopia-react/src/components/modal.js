@@ -6,7 +6,8 @@ class Modal extends Component {
         super(props);
         this.state={
             number_purchased: '',
-            showYes: false
+            showYes: false,
+            loggedin: this.props.isloggedin
         }
     }
 
@@ -18,11 +19,10 @@ class Modal extends Component {
         });
     }
 
-
-
     handleSubmit = async () => {
         const newInfo = this.state;
-        
+        const storeLogin = window.sessionStorage.getItem('loggedInStatus');
+        console.log('Store login  :', storeLogin);
         const url = `http://localhost:3000/donations/add-donated-item`;
         const response = await fetch(url, {
             method: "POST",
@@ -43,7 +43,9 @@ class Modal extends Component {
     }
 
     render() {
-        const { itemData, togglePopup} = this.props;
+        const { itemData, togglePopup, isloggedin } = this.props;
+        const storeLogin = window.sessionStorage.getItem('loggedInStatus');
+        
         const { showYes } = this.state;
         
         return (

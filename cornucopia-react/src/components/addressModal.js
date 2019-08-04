@@ -17,7 +17,7 @@ class AddressModal extends Component {
     }
 
     render() {
-        const { itemData, togglePopup } = this.props;
+        const { itemData, togglePopup, isloggedin } = this.props;
         const { popupState } = this.state;
 
         return (
@@ -37,7 +37,7 @@ class AddressModal extends Component {
                             <button onClick={this.togglePopup} className="yes-button"><a href={itemData.store_link} target='_blank' rel="noopener noreferrer">Onto Wish List</a></button>
                             <button className="close-button" onClick={() => togglePopup()}>Close</button>
                             {!!popupState ? 
-                                <Modal itemData={itemData} togglePopup={this.togglePopup} popupState={popupState}/>
+                                <Modal itemData={itemData} togglePopup={this.togglePopup} popupState={popupState} isloggedin={isloggedin}/>
                                 : 
                                 null
                             }

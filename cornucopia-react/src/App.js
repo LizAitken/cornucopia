@@ -101,7 +101,7 @@ class App extends Component {
               <div className='total-wrap'>
                 <Route path='/' exact render={About}/>
                 <Route path="/home" 
-                  render={(props) => <DonationList {...props} itemData={items} getAllItems={this.loadData}/>}
+                  render={(props) => <DonationList {...props} itemData={items} getAllItems={this.loadData} isloggedin={isloggedin}/>}
                 />
                 <Route path="/non-profit/sign-up" render={(props) => (<NGOSignup {...props} isloggedin={isloggedin}/>)}/>
                 <Route path="/user-sign-up" component={UserSignup} />

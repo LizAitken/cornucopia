@@ -18,7 +18,9 @@ class DonationItem extends Component {
     }
 
     render() {
-        const { itemData } = this.props;
+        const { itemData, isloggedin } = this.props;
+        const storeLogin = window.sessionStorage.getItem('loggedInStatus');
+        
         const { popupState } = this.state;
 
         return (
@@ -50,7 +52,7 @@ class DonationItem extends Component {
                 <button onClick={this.togglePopup} className='registry-button'>WISH LIST</button>
             </div>
             {!!popupState ? 
-                    <AddressModal itemData={itemData} togglePopup={this.togglePopup} popupState={popupState}/>
+                    <AddressModal itemData={itemData} togglePopup={this.togglePopup} popupState={popupState} isloggedin={isloggedin}/>
                     : 
                     null
                 }
