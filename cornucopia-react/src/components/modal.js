@@ -56,6 +56,9 @@ class Modal extends Component {
                         <p className="popup-item-name"> {itemData.donation_name}</p> 
                         <p> to</p>
                         <p className="ngo-popup-title"> {itemData.ngo_name}?</p>
+                        <div className='image-wrap'>
+                                <img src={itemData.donation_photo} alt={itemData.donation_name}/>
+                        </div>
                         {!!showYes ? 
                             <form className="popup-form" onSubmit={this.handleSubmit}>
                                 <label>

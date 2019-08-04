@@ -59,7 +59,6 @@ class App extends Component {
           ngo_description
     });
     window.sessionStorage.setItem('user', JSON.stringify(user));
-    // const storedItem = sessionStorage.getItem('user');
     // console.log('stored item: ', storedItem);
   }
 
@@ -74,8 +73,11 @@ class App extends Component {
   async componentDidMount() {
     const data = await this.loadData();
     // console.log('did mount data  : ', data);
+    let storedItem1 = sessionStorage.getItem('user');
+    const storedItem = JSON.parse(storedItem1);
     this.setState({
-      items: data
+      items: data,
+      user: storedItem
     });
   };
 
@@ -87,8 +89,9 @@ class App extends Component {
   };
 
   render() {
-    const { items, isloggedin } = this.state;
-    // console.log(items);
+    const { items, isloggedin, user } = this.state;
+    
+    console.log('stored item APP PAGE:  ', user);
     window.sessionStorage.setItem('loggedInStatus', isloggedin);
     let loggedInStatus = window.sessionStorage.getItem('loggedInStatus'); 
     // console.log('THis IS THE LOGGED IN STATUS VARIABLE', loggedInStatus);
@@ -106,7 +109,7 @@ class App extends Component {
                 <Route path="/non-profit/sign-up" render={(props) => (<NGOSignup {...props} isloggedin={isloggedin}/>)}/>
                 <Route path="/user-sign-up" component={UserSignup} />
                 <Route path="/non-profit/profile/:ngo_id" component={NGOProfile} />
-                <Route path="/wish-list" render={BookMark}/>
+                <Route path="/wish-list" render={(props) => <BookMark {...props} user={user}/>}/>
               </div>
               :
                 <>
@@ -114,8 +117,10 @@ class App extends Component {
                   <Route path="/non-profit/sign-up" render={(props) => (<NGOSignup {...props} user={this.state} isloggedin={isloggedin} handleLoginState={this.handleLoginState}/>)} />
                   <Route path="/user-sign-up" component={UserSignup} />
                   <Route path='/' exact render={About}/>
-                  <Route path='/home' render={PlzLogin}/>
                   <Route path="/wish-list" render={PlzLogin}/>
+                  <Route path="/home" 
+                  render={(props) => <DonationList {...props} user={user} itemData={items} getAllItems={this.loadData} isloggedin={isloggedin}/>}
+                />
                 </>
             }
           </div> 

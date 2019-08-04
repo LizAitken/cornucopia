@@ -19,6 +19,7 @@ class DonationItem extends Component {
 
     render() {
         const { itemData, isloggedin } = this.props;
+        
         const storeLogin = window.sessionStorage.getItem('loggedInStatus');
         
         const { popupState } = this.state;
