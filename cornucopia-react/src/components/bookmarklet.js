@@ -73,6 +73,7 @@
             price.style.fontSize = '21px';
             price.style.fontWeight = 'bold';
             box.appendChild(price);
+
             let imageInputWrap = document.createElement('div');
             imageInputWrap.style.display = 'flex';
             imageInputWrap.style.flexDirection = 'row';
@@ -83,6 +84,7 @@
             imageWrap.style.objectFit='fill';
             imageWrap.style.marginRight = '18px';
             imageInputWrap.appendChild(imageWrap);
+
             let image1 = document.querySelector('#landingImage');
             let image2 = image1.getAttribute('src');
             let image = document.createElement('img');
@@ -185,6 +187,7 @@
             let imageWrap  = document.createElement('div');
             imageWrap.style.objectFit='fill';
             imageInputWrap.appendChild(imageWrap);
+            
             let image1 = document.querySelector('#main-image');
             let image2 = image1.getAttribute('src');
             let image = document.createElement('img');

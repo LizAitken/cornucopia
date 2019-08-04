@@ -1,4 +1,5 @@
 ((function(){
+    document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
     let wrapper= document.createElement('div');
     wrapper.style.width='100%';
     wrapper.style.height='100%';
@@ -150,17 +151,13 @@
             if (/Android|Mobile|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
                 box.style.height= '510px';
                 topText.style.padding = '4px';
-                title.style.fontSize = '14px';
-
                 price.style.margin = '5px';
                 price.style.padding = '0';
                 price.style.fontSize = '16px';
-
                 imageInputWrap.style.flexDirection = 'column';
                 imageInputWrap.style.justifyItems = 'center';
                 imageInputWrap.style.textAlign = 'center';
                 imageWrap.style.marginRight = '0';
-
                 image.style.margin= '12px';
                 labelName.style.marginTop = '5px';
             }
@@ -184,4 +181,4 @@
             });        
     }
     displayBookmarklet(); 
-})())
+})());
