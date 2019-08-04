@@ -29,7 +29,25 @@ router.post('/sign-up', async (req,res) => {
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.password, salt);
     const response = await NGO_User.addNGO(name, email, hash, ein, address, description, type_id, website, photo);
-    return response;
+    if(response.name != 'undefined') {
+        console.log('is logged in');
+        req.session.is_logged_in = true;
+        req.session.ngo_id = response.ngo_id;
+        req.session.ngo_name = response.ngo_name;
+        req.session.ngo_email = response.ngo_email;
+        req.session.ngo_address = response.ngo_address;
+        req.session.ngo_website = response.ngo_website;
+        req.session.ngo_description = response.ngo_description;
+        response["login"] = true;
+        req.session.save()
+        res.json({
+            data:response
+        });
+        console.log(data);
+    } else {
+        res.sendStatus(401)
+        console.log('wrong pw');
+    }
 });
 
 router.post('/log-in', async (req,res) => {

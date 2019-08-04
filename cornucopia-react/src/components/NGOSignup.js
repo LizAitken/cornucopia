@@ -108,6 +108,7 @@ class NGOSignup extends Component {
         const url = `http://localhost:3000/non-profit/sign-up`;
         console.log(url);
         try {
+            console.log('working here?');
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
@@ -116,17 +117,16 @@ class NGOSignup extends Component {
                 },
                 body: JSON.stringify(newInfo)
             })
-            console.log(response);
-            if (response.ok) {
+            
+            if (response) {
                 this.setState({
                     userCreated: true
                 });
-            } else {
-                console.log('Nope, try again')
-            }
-            console.log("userCreated: ", this.state.userCreated);
+            } 
+            console.log("This is the new info on ngo signup:", newInfo);
             const userData = await response.json();
-            console.log(userData);
+            console.log('User data',userData);
+            console.log('userdata.data  : ', userData.data);
             if (!!userData.data) {
                 const { ngo_id, ngo_name, ngo_email, ngo_address, ngo_website, ngo_photo, ngo_description } = userData.data;
                 this.props.handleLoginState({
@@ -147,8 +147,8 @@ class NGOSignup extends Component {
 
     render() {
         const { userCreated } = this.state;
-        let loggedInStatus = window.sessionStorage.getItem('loggedInStatus'); 
-        console.log('THis IS THE LOGGED IN STATUS VARIABLE', loggedInStatus);
+        // let loggedInStatus = window.sessionStorage.getItem('loggedInStatus'); 
+        // console.log('THis IS THE LOGGED IN STATUS VARIABLE', loggedInStatus);
 
 
         return (
@@ -194,7 +194,7 @@ class NGOSignup extends Component {
                   </label>
                   <input className='sign-in-button' type="submit" value="Submit" />     
               </form> 
-              {!!userCreated ? <Redirect to = "/home"/> : ""} 
+              {!!userCreated ? <Redirect to = "/wish-list"/> : ""} 
               <button><Link to={'/wish-list'}>Create My Wish-List!</Link></button>
             </>
         )
