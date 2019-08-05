@@ -2,6 +2,10 @@
     text-align: center;
 }
 
+.bookmarklet-title {
+    margin: 4rem 0 2rem 0;
+}
+
 .instructions {
     margin: 1rem;
 }
@@ -46,6 +50,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 2rem;
 }
 
 .p-wrap a {
@@ -60,10 +65,15 @@
     display: flex;
     align-self: center;
     border: 12px solid rgb(49, 59, 103);
-    margin-bottom: 10rem;
+    margin-bottom: 7rem;
 }
 
 .video-title {
+    background-color: white;
     font-weight: bold;
-    text-decoration: underline;
+    border: 5px solid rgb(49, 59, 103);
+    max-width: 750px;
+    display: flex;
+    align-self: center;
+    padding: 10px;
 }

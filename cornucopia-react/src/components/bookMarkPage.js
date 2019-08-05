@@ -11,7 +11,7 @@ const BookMark = (props) => {
     return (
         <>
             <div className='bookmarklet-wrap'>
-                <h1>Create Your Wish List</h1>
+                <h1 className='bookmarklet-title'>Create Your Wish List</h1>
                 <div className='instructions'>
                         <div className='first-part'>
                             <h1 className='wishlist-numbers'>1</h1>
