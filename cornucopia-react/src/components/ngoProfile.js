@@ -24,6 +24,7 @@ class NGO_Profile extends Component {
 
     render() {
         const { ngoInfo } = this.state;
+
         return (
             <>
                 <div className='profile-wrap'>

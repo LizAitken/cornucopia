@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import { Redirect } from 'react-router-dom'
 
-
 import MainNav from './components/mainNav';
 import DonationList from './components/donationList';
 import NGOSignup from './components/NGOSignup';
 import UserSignup from './components/userSignup';
-import NGOProfile from './components/ngoProfile';
+import NGO_Profile from './components/ngoProfile';
 import NGOLogin from './components/ngoLogin';
 import About from './components/about';
 import BookMark from './components/bookMarkPage';
 import PlzLogin from './components/plzLogin';
+import NGOpersonalPage from './components/NGOpersonalPage';
 
 import './App.css';
 
@@ -74,6 +74,7 @@ class App extends Component {
     const data = await this.loadData();
     // console.log('did mount data  : ', data);
     let storedItem1 = sessionStorage.getItem('user');
+    // let loggedInStatus = window.sessionStorage.getItem('loggedInStatus'); 
     const storedItem = JSON.parse(storedItem1);
     this.setState({
       items: data,
@@ -90,11 +91,9 @@ class App extends Component {
 
   render() {
     const { items, isloggedin, user } = this.state;
-    
-    console.log('stored item APP PAGE:  ', user);
+
     window.sessionStorage.setItem('loggedInStatus', isloggedin);
     let loggedInStatus = window.sessionStorage.getItem('loggedInStatus'); 
-    // console.log('THis IS THE LOGGED IN STATUS VARIABLE', loggedInStatus);
 
     return (
       <Router>
@@ -108,8 +107,9 @@ class App extends Component {
                 />
                 <Route path="/non-profit/sign-up" render={(props) => (<NGOSignup {...props} isloggedin={isloggedin}/>)}/>
                 <Route path="/user-sign-up" component={UserSignup} />
-                <Route path="/non-profit/profile/:ngo_id" component={NGOProfile} />
+                <Route path="/non-profit/profile/:ngo_id" component={NGO_Profile}/>
                 <Route path="/wish-list" render={(props) => <BookMark {...props} user={user}/>}/>
+                <Route path="/my-profile" render={(props) => <NGOpersonalPage {...props} isloggedin={isloggedin} user={user}/>}/>
               </div>
               :
                 <>
@@ -119,8 +119,7 @@ class App extends Component {
                   <Route path='/' exact render={About}/>
                   <Route path="/wish-list" render={PlzLogin}/>
                   <Route path="/home" 
-                  render={(props) => <DonationList {...props} user={user} itemData={items} getAllItems={this.loadData} isloggedin={isloggedin}/>}
-                />
+                  render={(props) => <DonationList {...props} user={user} itemData={items} getAllItems={this.loadData} isloggedin={isloggedin}/>}/>
                 </>
             }
           </div> 

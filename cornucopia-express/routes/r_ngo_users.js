@@ -71,9 +71,9 @@ router.post('/log-in', async (req,res) => {
         NGOuser["login"] = true;
         req.session.save()
         res.json({
-            data:NGOuser
+            data: NGOuser
         });
-        console.log(data);
+        console.log('DATA',data);
     } else {
         res.sendStatus(401)
         console.log('wrong pw');

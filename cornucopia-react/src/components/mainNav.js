@@ -6,19 +6,19 @@ const MainNav = props => {
         const { isloggedin } = props;
         return (
             <nav className='nav-bar'>
-            <ul>
+                <ul>
                     <li className='route-li'>
                         <NavLink to={'/home'} className='home-link'>Cornucopia</NavLink>
                         <div>
                             <NavLink to={'/'} className='signup-link'>About</NavLink>
                             {!isloggedin ?
-                            <NavLink to={'/ngo-login'} className='signup-link'>Log-In</NavLink>
+                                <NavLink to={'/ngo-login'} className='signup-link'>Log-In</NavLink>
                             :
-                            <button className='logout-text' onClick={props.handleLogoutState()}>Log-Out</button>
+                                <button className='logout-text' onClick={props.handleLogoutState()}>Log-Out</button>
                             }
                         </div>
                     </li>
-            </ul>
+                </ul>
             </nav>
         );
 };
