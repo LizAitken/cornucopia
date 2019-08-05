@@ -153,7 +153,7 @@ class NGOSignup extends Component {
 
         return (
             <>
-              <h1>Non-Profit Sign-Up</h1>
+              <h1 className='ngo-signup-title'>Non-Profit Sign-Up</h1>
               <form onSubmit={this.handleNGOSignInSubmit}>
                   <label>
                       <input type='text' value={this.state.name} onChange={this.handleNGO_NameChange} placeholder='Non-Profit Name' required/>
@@ -195,7 +195,6 @@ class NGOSignup extends Component {
                   <input className='sign-in-button' type="submit" value="Submit" />     
               </form> 
               {!!userCreated ? <Redirect to = "/wish-list"/> : ""} 
-              <button><Link to={'/wish-list'}>Create My Wish-List!</Link></button>
             </>
         )
     }

@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+    justify-content: center;
 }
 
 .profile-title {
@@ -13,34 +14,55 @@
 
 .ngo-type {
     font-style: italic;
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin: .5rem 0 2.5rem 0; 
 }
 
+.profile-content-wrap {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .ngo-photo {
-    width: 15rem;
+    width: 18rem;
     height: auto;
+    align-self: center;
 }
 
 .ngo-description {
-    font-size: 1.18rem;
+    font-size: 1.2rem;
     margin: 3rem;
-    padding: .5rem;
+    padding: .2rem;
     border-radius: 3px;
+    width: 40%;
+    align-self: center;
     background-color: rgba(247, 190, 105, 0.844);
     box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
 }
 
 .contact-us {
     text-decoration: underline;
+    font-size: 1.5rem;
+}
+
+.address-text {
+    font-size: 1.2rem;
 }
 
 .website-icon, .email-icon {
-    width: 2.3rem;
-    height: 2.3rem;
+    width: 2.5rem;
+    height: 2.5rem;
     margin: 0 1rem 1rem 1rem;
 }
 
 .website-icon:hover, .email-icon:hover {
     opacity: .5;
+}
+
+.ngo-signup-title {
+    margin-top: 5rem;
 }

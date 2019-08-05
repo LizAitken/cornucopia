@@ -20,15 +20,18 @@ body {
 } 
 
 .select-menu select {
-padding: 5px 8px;
+  padding: 5px 8px;
 }
 
 .select-menu select:focus {
-outline: none;
+  outline: none;
 }
 
-select::-ms-expand {
-display: none;
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
 }
 
 

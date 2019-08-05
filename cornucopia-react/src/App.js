@@ -108,7 +108,7 @@ class App extends Component {
                 <Route path="/non-profit/sign-up" render={(props) => (<NGOSignup {...props} isloggedin={isloggedin}/>)}/>
                 <Route path="/user-sign-up" component={UserSignup} />
                 <Route path="/non-profit/profile/:ngo_id" component={NGO_Profile}/>
-                <Route path="/wish-list" render={(props) => <BookMark {...props} user={user}/>}/>
+                <Route path="/wish-list" render={(props) => <BookMark {...props} isloggedin={isloggedin} user={user}/>}/>
                 <Route path="/my-profile" render={(props) => <NGOpersonalPage {...props} isloggedin={isloggedin} user={user}/>}/>
               </div>
               :
@@ -117,6 +117,7 @@ class App extends Component {
                   <Route path="/non-profit/sign-up" render={(props) => (<NGOSignup {...props} user={this.state} isloggedin={isloggedin} handleLoginState={this.handleLoginState}/>)} />
                   <Route path="/user-sign-up" component={UserSignup} />
                   <Route path='/' exact render={About}/>
+                  <Route path="/non-profit/profile/:ngo_id" component={NGO_Profile}/>
                   <Route path="/wish-list" render={PlzLogin}/>
                   <Route path="/home" 
                   render={(props) => <DonationList {...props} user={user} itemData={items} getAllItems={this.loadData} isloggedin={isloggedin}/>}/>

@@ -36,6 +36,7 @@ class DonationItem extends Component {
                     <p className='ngo-title'><Link to={`/non-profit/profile/${itemData.donation_receiver}`}>{itemData.ngo_name}</Link></p>
                     <p className='subtitle'>{itemData.type_name}</p>
                 </div>
+                {}
                 <div className='numbers-wrap'>
                     <div className='numbers'>
                         <p className='numbers-title'>Total Need</p>
@@ -50,7 +51,7 @@ class DonationItem extends Component {
                         <p className='still-need'>{itemData.amount_still_needed}</p>
                     </div>
                 </div>
-                <button onClick={this.togglePopup} className='registry-button'>WISH LIST</button>
+                <button onClick={this.togglePopup} className='registry-button'>DONATE</button>
             </div>
             {!!popupState ? 
                     <AddressModal itemData={itemData} togglePopup={this.togglePopup} popupState={popupState} isloggedin={isloggedin}/>

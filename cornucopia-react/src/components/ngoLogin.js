@@ -81,7 +81,7 @@ class NGOLogin extends Component {
 
     render() {
         return (
-            <>
+            <div className='ngo-login-wrap'>
               <h1>Login</h1>
               <form onSubmit={this.handleNGOSubmit}>
                  <label>
@@ -93,7 +93,7 @@ class NGOLogin extends Component {
                   <input className="sign-in-button" type="submit" value="Submit" />
               </form>
               <p className='under-text'>Not signed up yet? <Link to="/non-profit/sign-up">Non-Profit Sign Up Here</Link></p>  
-            </>
+            </div>
         )
     }
 }

@@ -103,12 +103,14 @@
                 imageWrap.appendChild(image);
 
                 let inputsWrap = document.createElement('div');
+                inputsWrap.style.display = 'flex';
+                inputsWrap.style.flexDirection = 'column';
+                inputsWrap.style.justifyContent = 'center';
                 imageInputWrap.appendChild(inputsWrap);
                 let labelQuantity = document.createElement('p');
                 labelQuantity.textContent = 'How many do you need?';
                 labelQuantity.style.fontWeight = 'bold';
-                labelQuantity.style.marginTop = '10px';
-                labelQuantity.style.fontSize = '17px';
+                labelQuantity.style.fontSize = '19px';
                 inputsWrap.appendChild(labelQuantity);
 
                 let inputWrap = document.createElement('p');
@@ -122,11 +124,20 @@
                 let submitButton = document.createElement('button');
                 submitButton.textContent = 'Add to My Wish List';
                 submitButton.style.fontWeight = 'bold';
-                submitButton.style.margin = '5px';
+                submitButton.style.marginTop = '18px';
                 submitButton.style.fontSize = '16px';
                 submitButton.style.border = '1px solid black';
                 submitButton.style.borderRadius = '15px';
                 inputsWrap.appendChild(submitButton);
+
+                let thankYou = document.createElement('p');
+                thankYou.textContent='Added to Wish List!';
+                thankYou.style.textAlign='center';
+                thankYou.style.margin= '15px';
+                thankYou.style.fontSize = '18px';
+                thankYou.style.fontWeight = 'bold';
+                thankYou.style.display = 'none';
+                inputsWrap.appendChild(thankYou);
 
                 const currentURL = window.location.href;  
                 let newQuantity = Number(inputQuantity.value);
@@ -135,7 +146,7 @@
                 if (/Android|Mobile|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
                     box.style.height= '510px';
                     topText.style.padding = '4px';
-                    price.style.margin = '5px';
+                    price.style.margin = '10px';
                     price.style.padding = '0';
                     price.style.fontSize = '16px';
                     imageInputWrap.style.flexDirection = 'column';
@@ -159,7 +170,9 @@
                 submitButton.addEventListener('click', function(e) {
                     e.preventDefault;
                     newQuantity = Number(inputQuantity.value); 
-                    newQuantity === 0 ? alert('Please enter the quantity!'): sendInfo(); wrapper.style.display='none';                
+                    newQuantity === 0 ? alert('Please enter the quantity!'): 
+                        sendInfo();
+                        thankYou.style.display='block';                 
                 });        
         }
         displayBookmarklet(); 

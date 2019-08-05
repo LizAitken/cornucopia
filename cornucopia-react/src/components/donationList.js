@@ -47,7 +47,7 @@ class DonationList extends Component {
             <form className='sorting-form'>
               <p className='sorting-title'>Sort By Non-Profit Type</p>
               <select className='select-menu' value={type_id} onChange={(e) => this.handleTypeNameChange(e)}>
-                  <option>All</option>
+                  <option>Select a Type</option>
                   <option value='1'>Animal Welfare</option>
                   <option value='2'>Environmental & Conservation</option>
                   <option value='3'>Disaster Relief</option>
