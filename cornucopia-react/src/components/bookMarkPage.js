@@ -39,6 +39,12 @@ const BookMark = (props) => {
                                 <p>While on a specific item, click on your 'Add to Wish List' bookmarklet!</p>
                             </div>
                         </div>
+                        <div className='third-part'>
+                            <div className='p-wrap'>
+                                <h3 className='video-title'>Here's how to add an item to your wish list!</h3>
+                                <div className='bookmarklet-video'></div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </>

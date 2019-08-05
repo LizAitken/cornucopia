@@ -43,8 +43,27 @@
 .p-wrap {
     font-size: 1.2rem;
     font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .p-wrap a {
+    text-decoration: underline;
+}
+
+.bookmarklet-video {
+    background-image: url("../images/bookmarklet_vid.gif");
+    background-size: cover;
+    width: 46rem;
+    height: 23rem;
+    display: flex;
+    align-self: center;
+    border: 12px solid rgb(49, 59, 103);
+    margin-bottom: 10rem;
+}
+
+.video-title {
+    font-weight: bold;
     text-decoration: underline;
 }

@@ -69,6 +69,17 @@ h1 {
     letter-spacing: 0.12rem;
   }
 
+.plz-login-wrap {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.plz-login {
+  margin: 3rem;
+}
+
   .goto-login a{
     padding: 10px 15px;
     background-color: rgb(49, 59, 103);
