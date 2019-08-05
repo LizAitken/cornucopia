@@ -180,3 +180,5 @@
         alert('We could not read this page. Please go to an Amazon Item page!');
     }
 })());
+
+// https://mrcoles.com/bookmarklet/
