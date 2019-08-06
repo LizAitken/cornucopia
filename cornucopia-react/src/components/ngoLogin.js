@@ -62,6 +62,7 @@ class NGOLogin extends Component {
             console.log(userData);
             if (!!userData.data) {
                 const { ngo_id, ngo_name, ngo_email, ngo_address, ngo_website, ngo_photo, ngo_description } = userData.data;
+                console.log('userData. data:  ', userData.data);
                 this.props.handleLoginState({
                     ngo_id, 
                     ngo_name, 

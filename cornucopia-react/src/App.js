@@ -47,7 +47,8 @@ class App extends Component {
             ngo_photo, 
             ngo_description 
           } = user;
-    
+
+    console.log('handle login stat user: ', user);
     this.setState({
           isloggedin: true,
           ngo_id, 
@@ -56,7 +57,8 @@ class App extends Component {
           ngo_address, 
           ngo_website, 
           ngo_photo, 
-          ngo_description
+          ngo_description,
+          user
     });
     window.sessionStorage.setItem('user', JSON.stringify(user));
     // console.log('stored item: ', storedItem);
@@ -76,9 +78,11 @@ class App extends Component {
     let storedItem1 = sessionStorage.getItem('user');
     // let loggedInStatus = window.sessionStorage.getItem('loggedInStatus'); 
     const storedItem = JSON.parse(storedItem1);
+    console.log('stored item: ',storedItem1);
+
     this.setState({
-      items: data,
-      user: storedItem
+      items: data
+      // user: storedItem
     });
   };
 
@@ -91,7 +95,7 @@ class App extends Component {
 
   render() {
     const { items, isloggedin, user } = this.state;
-
+    console.log('USERRR : ', user);
     window.sessionStorage.setItem('loggedInStatus', isloggedin);
     let loggedInStatus = window.sessionStorage.getItem('loggedInStatus'); 
 
