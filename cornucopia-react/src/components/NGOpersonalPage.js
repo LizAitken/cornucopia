@@ -11,7 +11,8 @@ class NGOpersonalPage extends Component {
     async componentDidMount() {
         const ngoInfo = await this.loadData();
         this.setState({
-          ngoInfo
+          ngoInfo,
+        //   isloggedin: this.props.isloggedin
         });
     };
     
@@ -26,9 +27,7 @@ class NGOpersonalPage extends Component {
     };
 
     render() {
-        const { isloggedin, user } = this.props;
-        let loggedInStatus = window.sessionStorage.getItem('loggedInStatus');
-        console.log('ngo personal islogged in:  ', loggedInStatus);
+        const { user } = this.props;
         
         return(
             <>

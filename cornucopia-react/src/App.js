@@ -113,7 +113,6 @@ class App extends Component {
                 <Route path="/user-sign-up" component={UserSignup} />
                 <Route path="/non-profit/profile/:ngo_id" component={NGO_Profile}/>
                 <Route path="/wish-list" render={(props) => <BookMark {...props} isloggedin={isloggedin} user={user}/>}/>
-                <Route path="/my-profile" render={(props) => <NGOpersonalPage {...props} isloggedin={isloggedin} user={user}/>}/>
               </div>
               :
                 <>
