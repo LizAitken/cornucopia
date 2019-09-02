@@ -19,7 +19,8 @@ import './App.css';
 const routesArray = [
   { linkRoute: '/home', linkName: 'Cornupcopia' },
   { linkRoute: '/non-profit/sign-up', linkName: 'Non-Profit?'},
-  { linkRoute: '/ngo-login', linkName: 'Log-In'}
+  { linkRoute: '/ngo-login', linkName: 'Log-In'},
+  { linkRoute: '/nonprofit-personal-page', linkName: 'NGO-Personal-Page'}
 ]
 
 
@@ -98,11 +99,12 @@ class App extends Component {
     console.log('USERRR : ', user);
     window.sessionStorage.setItem('loggedInStatus', isloggedin);
     let loggedInStatus = window.sessionStorage.getItem('loggedInStatus'); 
+    let nonprofitPagePath = `/non-profit/profile/:${user.ngo_id}`;
 
     return (
       <Router>
           <div className="App">
-            <MainNav routes={routesArray} handleLogoutState={(e) => this.handleLogoutState} isloggedin={isloggedin} />
+            <MainNav routes={routesArray} handleLogoutState={(e) => this.handleLogoutState} isloggedin={isloggedin} user={user}/>
             {loggedInStatus === 'true' ?
               <div className='total-wrap'>
                 <Route path='/' exact render={About}/>
@@ -113,6 +115,7 @@ class App extends Component {
                 <Route path="/user-sign-up" component={UserSignup} />
                 <Route path="/non-profit/profile/:ngo_id" component={NGO_Profile}/>
                 <Route path="/wish-list" render={(props) => <BookMark {...props} isloggedin={isloggedin} user={user}/>}/>
+                <Route path="/nonprofit-personal-page" component={NGOpersonalPage}/>
               </div>
               :
                 <>
