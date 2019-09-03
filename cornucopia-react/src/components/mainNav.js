@@ -5,7 +5,7 @@ import '../styles/mainNav.css';
 
 const MainNav = props => {
         const { isloggedin, user } = props;
-        let nonprofitPagePath = `/non-profit/profile/:${user.ngo_id}`;
+        let nonprofitPagePath = `/non-profit/personal-page/${user.ngo_id}`;
         console.log('path is ',nonprofitPagePath);
         console.log('email is', user.ngo_email);
 
