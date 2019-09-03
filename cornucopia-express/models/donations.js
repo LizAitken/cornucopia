@@ -109,7 +109,9 @@ class Donations {
                     donation_name, 
                     donation_cost, 
                     donation_amount, 
-                    donation_store_name
+                    donation_store_name,
+                    number_purchased,
+                    amount_still_needed
                 FROM
                     donations,
                     user_profile
@@ -126,6 +128,7 @@ class Donations {
     }
 
     static async getAllDonationsByNGOid(ngo_id) {
+        console.log("getting to donations model");
         try {
             const response = await db.any(`
                 SELECT

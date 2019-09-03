@@ -6,8 +6,6 @@ import '../styles/mainNav.css';
 const MainNav = props => {
         const { isloggedin, user } = props;
         let nonprofitPagePath = `/non-profit/personal-page/${user.ngo_id}`;
-        console.log('path is ',nonprofitPagePath);
-        console.log('email is', user.ngo_email);
 
         return (
             <nav className='nav-bar'>

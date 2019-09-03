@@ -12,15 +12,7 @@ router.get('/profile/:ngo_id?', async (req, res, next) => {
     const ngoInfo = await NGO_User.getNGObyID(ngoID);
     res.json(ngoInfo).status(200);
 });
-
-router.get('/personal-page/:ngo_id?', async (req, res, next) => {
-    const ngoID = req.params.ngo_id;
-    console.log('getting to router');
-    const ngoInfo = await NGO_User.getNGObyID(ngoID);
-    console.log('personal page on route',ngoInfo)
-    res.json(ngoInfo).status(200);
-});
-  
+ 
 router.post('/sign-up', async (req,res) => {
     const {
         name,
