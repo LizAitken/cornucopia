@@ -120,6 +120,7 @@ class Donations {
                     AND
                     donation_giver = user_id
             `);
+            console.log('response is HERERERE: ', response);
             return response;
         } catch(error) {
             console.log("Error on getAllDonationsByUserID:", error.message);
@@ -135,7 +136,9 @@ class Donations {
                     donation_name, 
                     donation_cost, 
                     donation_amount, 
-                    donation_store_name
+                    donation_store_name,
+                    number_purchased,
+                    amount_still_needed
                 FROM
                     donations,
                     ngo_profile

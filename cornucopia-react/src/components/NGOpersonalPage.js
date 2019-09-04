@@ -33,12 +33,20 @@ class NGOpersonalPage extends Component {
             <>
                 <h1>{user.ngo_name}</h1>
                 <h2>Donated Items</h2>
-                <ul>{
-                    donations.map((item,index) =>
-                        <li key={index}>
-                            <p>{item.donation_name}</p>
-                        </li>)
-                }</ul>
+                <ul>
+                    { 
+                        donations.map((item,index) => {
+                            return (
+                                item.number_purchased > 0 ?
+                                    <li key={index}>
+                                        <p>{item.donation_name}</p>                            
+                                    </li>
+                                :
+                                <></>
+                            )
+                        })
+                    }
+                </ul>
             </>
         );
     }
