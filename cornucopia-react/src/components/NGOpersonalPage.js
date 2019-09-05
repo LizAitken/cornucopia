@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NGOdonations from './NGOdonations';
 
 class NGOpersonalPage extends Component {
     constructor(props) {
@@ -39,7 +40,7 @@ class NGOpersonalPage extends Component {
                             return (
                                 item.number_purchased > 0 ?
                                     <li key={index}>
-                                        <p>{item.donation_name}</p>                            
+                                    <NGOdonations itemData={item}/>                            
                                     </li>
                                 :
                                 <></>
