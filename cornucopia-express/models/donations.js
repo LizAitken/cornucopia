@@ -137,6 +137,7 @@ class Donations {
                     donation_cost, 
                     donation_amount, 
                     donation_store_name,
+                    donation_photo,
                     number_purchased,
                     amount_still_needed
                 FROM

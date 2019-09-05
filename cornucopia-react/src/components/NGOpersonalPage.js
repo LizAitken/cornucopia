@@ -11,7 +11,7 @@ class NGOpersonalPage extends Component {
 
     componentDidMount = async () => {
         const itemData = await this.loadData();
-        console.log('item data from personal page:', itemData);
+        // console.log('item data from personal page:', itemData);
         this.setState({
           donations: itemData
         });
@@ -22,12 +22,12 @@ class NGOpersonalPage extends Component {
         const url = `http://localhost:3000/donations/items/${ngo_id}`;
         const response = await fetch(url);
         let data = await response.json();  
-        console.log("data from personal page load data", data);  
+        // console.log("data from personal page load data", data);  
         return data;
     };
     
     render() {
-        const { user } = this.props;
+        const { user, itemData } = this.props;
         const { donations } = this.state;
         
         return(
@@ -40,7 +40,7 @@ class NGOpersonalPage extends Component {
                             return (
                                 item.number_purchased > 0 ?
                                     <li key={index}>
-                                    <NGOdonations itemData={item}/>                            
+                                        <NGOdonations donations={item}/>                            
                                     </li>
                                 :
                                 <></>
