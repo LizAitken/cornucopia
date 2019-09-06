@@ -30,7 +30,7 @@ const NGOdonations = (props) => {
                         <h2 className='goal-met'>Congratulations! You met your goal!</h2>
                     </div>
                 }
-                <button className='registry-button'>DONATE</button>
+                <button className='registry-button'>REMOVE</button>
             </div>
 
         </>

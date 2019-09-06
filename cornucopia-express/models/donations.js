@@ -133,6 +133,7 @@ class Donations {
         try {
             const response = await db.any(`
                 SELECT
+                    donation_id,
                     donation_name, 
                     donation_cost, 
                     donation_amount, 
@@ -199,6 +200,21 @@ class Donations {
             return response;
         } catch(err) {
             console.log('Error at get items by type id :', err.message);
+            return err.message;
+        }
+    }
+
+    static async deleteDonationById(item_id) {
+        try {
+            const response = await db.any(`
+                DELETE 
+                FROM
+                    donations
+                WHERE
+                    donation_id = '${item_id}'
+            `)
+        }catch(err) {
+            console.log('Error at delete donation by id', err.message);
             return err.message;
         }
     }
