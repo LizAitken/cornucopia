@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NGOdonations from './NGOdonations';
+import '../styles/donationItem.css';
 
 class NGOpersonalPage extends Component {
     constructor(props) {
@@ -27,27 +28,29 @@ class NGOpersonalPage extends Component {
     };
     
     render() {
-        const { user, itemData } = this.props;
+        const { user } = this.props;
         const { donations } = this.state;
         
         return(
             <>
                 <h1>{user.ngo_name}</h1>
                 <h2>Donated Items</h2>
-                <ul>
-                    { 
-                        donations.map((item,index) => {
-                            return (
-                                item.number_purchased > 0 ?
-                                    <li key={index}>
-                                        <NGOdonations donations={item}/>                            
-                                    </li>
-                                :
-                                <></>
-                            )
-                        })
-                    }
-                </ul>
+                <div className='card-list'>
+                    <ul>
+                        { 
+                            donations.map((item,index) => {
+                                return (
+                                    item.number_purchased > 0 ?
+                                        <li key={index}>
+                                            <NGOdonations donations={item}/>                            
+                                        </li>
+                                    :
+                                    <></>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
             </>
         );
     }
