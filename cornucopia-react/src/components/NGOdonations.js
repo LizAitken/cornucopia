@@ -5,6 +5,14 @@ const NGOdonations = (props) => {
 
     const { donations } = props;
     console.log('donations on NGOdonations props: ', donations);
+
+    deleteData = async () => {
+        const item_id = props.match.params.item_id;      
+        console.log(item_id); 
+        const url = `http://localhost:3000/donations/delete/${item_id}`;
+        const response = await fetch(url);
+        return response;
+    };
     
     return(
         <>
