@@ -2,16 +2,16 @@ import React from 'react';
 import '../styles/donationItem.css';
 
 const NGOdonations = (props) => {
-
     const { donations } = props;
     console.log('donations on NGOdonations props: ', donations);
 
-    deleteData = async () => {
-        const item_id = props.match.params.item_id;      
-        console.log(item_id); 
-        const url = `http://localhost:3000/donations/delete/${item_id}`;
-        const response = await fetch(url);
-        return response;
+    const deleteData = async (e, itemID) => {
+            e.preventDefault();
+            console.log("Is it even getting tothe delete data function?", itemID);
+            // const itemID = props.match.params.item_id;      
+            const url = `http://localhost:3000/donations/delete/${itemID}`;
+            const response = await fetch(url);
+            return response;
     };
     
     return(
@@ -38,7 +38,7 @@ const NGOdonations = (props) => {
                         <h2 className='goal-met'>Congratulations! You met your goal!</h2>
                     </div>
                 }
-                <button className='registry-button'>REMOVE</button>
+                <button onClick={e => deleteData(e, donations.donation_id)} className='registry-button'>REMOVE</button>
             </div>
 
         </>

@@ -23,7 +23,8 @@ router.get('/all/type/:type_id?', async (req, res, next) => {
     res.json(sortedDonations).status(200);
 });
 
-router.post('/delete/:item_id', async (req, res, next) => {
+router.post('/delete/:item_id?', async (req, res, next) => {
+    console.log("getting to post!");
     const item_id = req.params.item_id;
     console.log("deleting this item id", item_id);
     const response = await Donations.deleteDonationById(item_id);

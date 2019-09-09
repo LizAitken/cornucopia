@@ -19,10 +19,10 @@ class NGOpersonalPage extends Component {
     };
     
     loadData = async () => {
-        const ngo_id = this.props.match.params.ngo_id;
-        const url = `http://localhost:3000/donations/items/${ngo_id}`;
+        const ngoId = this.props.match.params.ngo_id;
+        const url = `http://localhost:3000/donations/items/${ngoId}`;
         const response = await fetch(url);
-        let data = await response.json();  
+        let data = response.json();  
         // console.log("data from personal page load data", data);  
         return data;
     };

@@ -18,7 +18,7 @@ class NGO_Profile extends Component {
         const url = `http://localhost:3000/non-profit/profile/${ngoID}`;
         const response = await fetch(url);
         let NGOdata = response.json();
-        console.log('ngo data', NGOdata);
+        // console.log('ngo data', NGOdata);
         return NGOdata;
     };
 

@@ -205,6 +205,7 @@ class Donations {
     }
 
     static async deleteDonationById(item_id) {
+        console.log("reaching back end.");
         try {
             const response = await db.any(`
                 DELETE 
