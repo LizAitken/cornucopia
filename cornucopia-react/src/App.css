@@ -16,7 +16,7 @@ body {
   border-radius: 3px;
   border: 1px solid #777;
   overflow: hidden;
-  background: white url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+  background: white;
 } 
 
 .select-menu select {

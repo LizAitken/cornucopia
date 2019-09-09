@@ -14,7 +14,7 @@ const NGOdonations = (props) => {
             return response;
     };
     
-    return(
+    return (
         <>
             <div className='card'>
                 <h3 className='item-name'>{donations.donation_name}</h3>
@@ -22,7 +22,7 @@ const NGOdonations = (props) => {
                     <img src={donations.donation_photo} alt={donations.donation_name}/>
                 </div>
                 <p className='item-cost'>{donations.donation_cost}</p>
-                {donations.amount_still_needed >= 0 ?
+                {donations.amount_still_needed > 0 ?
                     <div className='numbers-wrap'>
                         <div>
                             <h3 className='numbers-title'>Donated</h3>

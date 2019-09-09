@@ -40,7 +40,24 @@ class NGOpersonalPage extends Component {
                         { 
                             donations.map((item,index) => {
                                 return (
-                                    item.number_purchased > 0 ?
+                                    item.number_purchased > 0 && item.amount_still_needed > 0?
+                                        <li key={index}>
+                                            <NGOdonations donations={item}/>                            
+                                        </li>
+                                    :
+                                    <></>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
+                <h2>Completed Donations</h2>
+                <div className='card-list'>
+                    <ul>
+                        { 
+                            donations.map((item,index) => {
+                                return (
+                                    item.amount_still_needed === 0 ?
                                         <li key={index}>
                                             <NGOdonations donations={item}/>                            
                                         </li>
