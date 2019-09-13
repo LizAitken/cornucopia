@@ -45,7 +45,7 @@ class NGOpersonalPage extends Component {
                                             <NGOdonations donations={item}/>                            
                                         </li>
                                     :
-                                    <></>
+                                    null
                                 )
                             })
                         }
@@ -55,14 +55,14 @@ class NGOpersonalPage extends Component {
                 <div className='card-list'>
                     <ul>
                         { 
-                            donations.map((item,index) => {
+                            donations.map((item, index) => {
                                 return (
                                     item.amount_still_needed === 0 ?
                                         <li key={index}>
                                             <NGOdonations donations={item}/>                            
                                         </li>
                                     :
-                                    <></>
+                                    null
                                 )
                             })
                         }

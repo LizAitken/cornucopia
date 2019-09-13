@@ -127,6 +127,8 @@ class App extends Component {
                   <Route path="/wish-list" render={PlzLogin}/>
                   <Route path="/home" 
                   render={(props) => <DonationList {...props} user={user} itemData={items} getAllItems={this.loadData} isloggedin={isloggedin}/>}/>
+                  <Route path="/non-profit/personal-page/:ngo_id" render={PlzLogin}/>
+
                 </>
             }
           </div> 
