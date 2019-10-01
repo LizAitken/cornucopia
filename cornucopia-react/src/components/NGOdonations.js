@@ -6,9 +6,7 @@ const NGOdonations = (props) => {
     console.log('donations on NGOdonations props: ', donations);
 
     const deleteData = async (e, itemID) => {
-            e.preventDefault();
-            console.log("Is it even getting tothe delete data function?", itemID);
-            // const itemID = props.match.params.item_id;      
+            e.preventDefault();   
             const url = `http://localhost:3000/donations/delete/${itemID}`;
             const response = await fetch(url);
             return response;

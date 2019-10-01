@@ -36,7 +36,7 @@ class DonationItem extends Component {
                     <p className='ngo-title'><Link to={`/non-profit/profile/${itemData.donation_receiver}`}>{itemData.ngo_name}</Link></p>
                     <p className='subtitle'>{itemData.type_name}</p>
                 </div>
-                {itemData.amount_still_needed >= 0 ? 
+                {itemData.amount_still_needed > 0 ? 
                     <div className='numbers-wrap'>
                         <div className='numbers'>
                             <p className='numbers-title'>Total Need</p>
