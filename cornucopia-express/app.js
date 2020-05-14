@@ -32,7 +32,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors(corsOptions));
 app.use(session({
     store: new FileStore(),
-    secret:'secret'
+    secret:'secret',
+    resave: true,
+    saveUninitialized: true
 }))
 // app.use(session({
 //     store: new FileStore(),
