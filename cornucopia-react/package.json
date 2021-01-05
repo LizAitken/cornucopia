@@ -11,7 +11,7 @@
     "react-mailto": "^0.4.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "yup": "^0.27.0"
   },
   "scripts": {
